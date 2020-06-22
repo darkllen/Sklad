@@ -1,61 +1,17 @@
-
-    function openTab(evt, tabName) {
-      var i, tabcontent, tablinks, subtablinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-
-      subtablinks = document.getElementsByClassName("subtablinks");
-      for (i = 0; i < subtablinks.length; i++) {
-        subtablinks[i].className = subtablinks[i].className.replace(" active", "");
-      }
+$(document).ready(function(){
 
 
-      document.getElementById(tabName).style.display = "block";
-      evt.currentTarget.className += " active";
-
-      if(tabName == "Create")
-        document.getElementById("defaultSubOpen").click();
-
-    }
 
 
-    function openSubTab(evt, tabName) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("subtabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("subtablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-      document.getElementById(tabName).style.display = "block";
-      evt.currentTarget.className += " active";
-    }
+    getAllProducts();
+    getAllGroups();
 
-    function openQuantityTab(evt, tabName) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("quantitytabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("quantitytablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-      document.getElementById(tabName).style.display = "block";
-      evt.currentTarget.className += " active";
-    }
+    var myToken = localStorage["tokenItem"] ;//localStorage.getItem("tokenItem");
 
 
-    // Get the element with id="defaultOpen" and click on it
-    document.getElementById("defaultOpen").click();
+
+
+
 
 
     // Get the modal
@@ -136,6 +92,8 @@
 
     submitProductButton.onclick = function() {
       modalDeleteProduct.style.display = "none";
+
+
     }
 
     cancelProductButton.onclick = function() {
@@ -216,20 +174,22 @@
       }
     }
 
-      $(document).ready(function(){
-        // console.log("hi");
-        getAllProducts();
-        // getAllGroups();
-      });
+      // $(document).ready(function(){
+      //   // console.log("hi");
+      //   getAllProducts();
+      //   // getAllGroups();
+      // });
 
       function getAllProducts(){
 
+
+
+
         $.ajax({
-          url: 'http://localhost:8001/api/good ',
+          url: 'http://localhost:8001/api/good',
 
           type: 'GET',
-          // data: send_data,
-          // dataType:'json',
+          headers: {Origin:"s" },
           success: function (json) {
                 
                       var d = document.getElementById('Products'); 
@@ -239,6 +199,39 @@
 
                     var product=formProduct(item);
                     d.innerHTML+=product;
+
+                  });
+
+                
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert("ERR   a"+myToken);
+
+                }
+
+          
+        });
+      }
+
+
+
+      function getAllGroups(){
+
+        $.ajax({
+          url: 'http://localhost:8001/api/group/',
+
+          type: 'GET',
+          token: myToken,
+
+          success: function (json) {
+                
+                      var d = document.getElementById('Groups'); 
+                      
+                      d.innerHTML = '';
+                      json.forEach(function(item){
+
+                    var group=formGroup(item);
+                    d.innerHTML+=group;
 
                   });
 
@@ -254,9 +247,11 @@
         });
       }
 
+
+
       function formProduct(item){
 
-        var text = '<tr id = "'+item.id+'">';
+        var text = '<tr id = "'+item.id+'_product">';
           text+='     <td>'+item.name+'</td>';
           text+='     <td>'+item.description+'</td>';
           text+='     <td>'+item.price+'</td>';
@@ -278,49 +273,156 @@
       }
 
 
+      function formGroup(item){
+
+        var text =  '<tr id = "'+item.id+'_group">';
+            text+='    <td>'+item.name+'</td>';
+            text+='     <td>'+item.description+'</td>';
+            text+='     <td><button class="table_button" id="edit_group_button">Edit</button></td>';
+            text+='     <td><button class="table_button" id="delete_group_button">Delete</button></td>';
+            text+='   </tr>';
 
 
 
+      }
 
 
 
+      function deleteProduct(id){
 
-
-
-
-var token;
-
-
-
-$(document).on('click','.login_button',function(e){
-
-//login
-
-        var send_data={"name":document.getElementById("login_name").value, 
-                        "password":document.getElementById("login_password").value};
 
         $.ajax({
-         url: 'http://localhost:8001/login',  
+          url: 'http://localhost:8001/api/good/'+id ,
 
-        method: 'GET',
-        dataType: 'json',
-        data: send_data,
-        success: function(tokenReturned){  
+          type: 'DELETE',
+          token: myToken,
+          // data: send_data,
+          // dataType:'json',
+          success: function () {
+                    alert('Deleted');
 
-          token = tokenReturned;
 
-        },
+                              
+                },
+                error: function (json) {
+                    alert(json.errors);
 
-        error: function (json) {
-              alert(json.errors);
+
+                }
+
+          
+        });
+
+      }
+
+
+      function deleteGroup(id){
+
+
+        $.ajax({
+          url: 'http://localhost:8001/api/group/'+id ,
+
+          type: 'DELETE',
+          token: myToken,
+          // data: send_data,
+          // dataType:'json',
+          success: function () {
+                    alert('Deleted');
+                              
+                },
+                error: function (json) {
+                    alert(json.errors);
+
+
+                }
+
+          
+        });
+
+      }
+
+
+       function increment(id, num){
+
+
+        $.ajax({
+          url: 'http://localhost:8001/api/good/increment'  ,
+
+          type: 'POST',
+          token: myToken,
+          // data: send_data,
+          // dataType:'json',
+          success: function () {
+                    alert('Incremented');
+                              
+                },
+                error: function (json) {
+                    alert(json.errors);
+
+
+                }
+
+          
+        });
+
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var myToken;
+
+
+
+// $(document).on('click','.login_button',function(e){
+
+// //login
+//               alert('login');
+
+
+//         var send_data={"name":document.getElementById("login_name").value, 
+//                         "password":document.getElementById("login_password").value};
+
+//         $.ajax({
+//          url: 'http://localhost:8001/login',  
+
+//         method: 'GET',
+//         dataType: 'json',
+//         data: send_data,
+//         success: function(tokenReturned){  
+
+//           myToken = tokenReturned;
+
+//               alert('success');
+
+
+//           window.location.replace(link);
+
+//         },
+
+//         error: function (json) {
+//               alert(json.errors);
             
-        },
+//         },
 
-      });
+//       });
 
-      });
+//   });
 
              
 
 
 
+
+
+});

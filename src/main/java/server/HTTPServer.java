@@ -75,6 +75,8 @@ public class HTTPServer {
                     ArrayList<User> users = new Database().getAllUsers();
                     if (users.stream().anyMatch(user -> user.getLogin().equals(params.getOrDefault("login", "")) && user.getPassword().equals(params.getOrDefault("password", "")))){
                         returnToken(httpExchange);
+                    } else{
+                        returnError(httpExchange, 401);
                     }
                 } catch (SQLException ignored) {
                 }
@@ -138,7 +140,11 @@ public class HTTPServer {
     }
     private class GoodHandler implements HttpHandler {
         public void handle(HttpExchange httpExchange) throws IOException {
+            System.out.println("b");
             httpExchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
+            httpExchange.getResponseHeaders().add("Access-Control-Allow-Headers", "*");
+            httpExchange.getResponseHeaders().add("Access-Control-Request-Headers", "*");
+            System.out.println(httpExchange.getRequestHeaders().values());
             Claims claims;
             try{
                 claims = Jwts.parser()
