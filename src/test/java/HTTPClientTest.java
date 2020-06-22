@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class HTTPClientTest {
+public class HTTPClientTest {
     String login = "darklen";
     String password = "qwerty";
 
@@ -112,7 +112,7 @@ class HTTPClientTest {
     void insertProductDuplicateName() throws IOException, AuthenticationException, NoSuchAlgorithmException {
         HTTPClient client = new HTTPClient();
         client.login(login,password);
-        int id = (client.insertProduct("asd", new ArrayList<>(), 2,2, "q", "w"));
+        int id = (client.insertProduct("apple", new ArrayList<>(), 2,2, "q", "w"));
         assertEquals(id, -1);
     }
 

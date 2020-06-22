@@ -68,6 +68,7 @@ public class HTTPServer {
 
     private class LoginHandler implements HttpHandler {
         public void handle(HttpExchange httpExchange) throws IOException {
+            httpExchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
             if("GET".equals(httpExchange.getRequestMethod())) {
                 Map<String, String> params = queryToMap(httpExchange.getRequestURI().getQuery());
                 try {
@@ -137,6 +138,7 @@ public class HTTPServer {
     }
     private class GoodHandler implements HttpHandler {
         public void handle(HttpExchange httpExchange) throws IOException {
+            httpExchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
             Claims claims;
             try{
                 claims = Jwts.parser()
@@ -241,6 +243,7 @@ public class HTTPServer {
     private class SpecificGoodHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange httpExchange) throws IOException {
+            httpExchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
             Claims claims;
             try{
                 claims = Jwts.parser()
@@ -301,6 +304,7 @@ public class HTTPServer {
     private class IncrementHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange httpExchange) throws IOException {
+            httpExchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
             Claims claims;
             try{
                 claims = Jwts.parser()
@@ -337,6 +341,7 @@ public class HTTPServer {
     private class DecrementHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange httpExchange) throws IOException {
+            httpExchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
             Claims claims;
             try{
                 claims = Jwts.parser()
@@ -372,6 +377,7 @@ public class HTTPServer {
 
     private class GroupHandler implements HttpHandler {
         public void handle(HttpExchange httpExchange) throws IOException {
+            httpExchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
             Claims claims;
             try{
                 claims = Jwts.parser()
@@ -464,6 +470,7 @@ public class HTTPServer {
     private class SpecificGroupHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange httpExchange) throws IOException {
+            httpExchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
             Claims claims;
             try{
                 claims = Jwts.parser()
