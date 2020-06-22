@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8f058613-d825-4902-ad0e-c7ad4e1ced41" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/db/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/db/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/HTTPClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/HTTPClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/HTTPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/HTTPServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/HTTPClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/HTTPClientTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="8f058613-d825-4902-ad0e-c7ad4e1ced41" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -101,8 +96,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/db/Database.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="351" column="9" lean-forward="true" selection-start-line="351" selection-start-column="9" selection-end-line="351" selection-end-column="9" />
+            <state relative-caret-position="267">
+              <caret line="48" column="33" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
               <folding>
                 <element signature="method#close#0;class#Database#0" />
                 <element signature="method#Database#1;class#Database#0" />
@@ -541,17 +536,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1592751310954</updated>
-      <workItem from="1592751314537" duration="20428000" />
+      <workItem from="1592751314537" duration="21059000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_Sklad - 2020.06.22 at 15h 07m 38s.xml">
-      <configuration name="All in Sklad" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HTTPClientTest - 2020.06.22 at 15h 16m 28s.xml">
-      <configuration name="HTTPClientTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="HTTPClientTest - 2020.06.22 at 15h 16m 39s.xml">
       <configuration name="HTTPClientTest" configurationId="JUnit" />
     </history-entry>
@@ -576,9 +565,15 @@
     <history-entry file="HTTPClientTest - 2020.06.22 at 16h 34m 49s.xml">
       <configuration name="HTTPClientTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="HTTPClientTest - 2020.06.22 at 16h 36m 38s.xml">
+      <configuration name="HTTPClientTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HTTPClientTest - 2020.06.22 at 16h 37m 10s.xml">
+      <configuration name="HTTPClientTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20428000" />
+    <option name="totallyTimeSpent" value="21059000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -589,7 +584,7 @@
       <window_info id="Capture Tool" />
       <window_info id="UI Designer" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Console" weight="0.31852654" />
       <window_info anchor="bottom" id="Terminal" />
@@ -600,7 +595,7 @@
       <window_info anchor="bottom" id="Messages" weight="0.32827735" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32827735" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32827735" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -840,8 +835,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/db/Database.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="351" column="9" lean-forward="true" selection-start-line="351" selection-start-column="9" selection-end-line="351" selection-end-column="9" />
+        <state relative-caret-position="267">
+          <caret line="48" column="33" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
           <folding>
             <element signature="method#close#0;class#Database#0" />
             <element signature="method#Database#1;class#Database#0" />
