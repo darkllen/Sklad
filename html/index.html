@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Final project</title>
+	<!-- <link rel="shortcut icon" href="./dist/img/logo.png" type="image/png"> -->
+	<!-- <link rel="stylesheet" href="./src/bootstrap/dist/css/bootstrap.min.css"> -->
+	<link rel="stylesheet" href="./dist/css/main.css">
+
+	<script src="./dist/js/jquery-3.4.1.min.js"></script>
+
+
+	
+	<script type="text/javascript" src="./dist/js/main.js"></script>
+	
+</head>
+
+<body id="body" class>
+
+		<!-- Tab links -->
+		<div class="tab">
+  			<button class="tablinks" onclick="openTab(event, 'Products')" id="defaultOpen">Products</button>
+
+  			<button class="tablinks" onclick="openTab(event, 'Groups')">Groups</button>
+
+  			<button class="tablinks" onclick="openTab(event, 'Create')">Create</button>
+
+		</div>
+
+		<!-- Tab content -->
+		<!-- Products -->
+		<div class="tabcontent">
+  			<table>
+					  <tr>
+
+					    <th>Name</th>
+					    <th>Description</th>
+					    <th>Price</th>
+					    <th>Quantity</th>
+					    <th>Group</th>
+					    <th>Edit</th>
+					    <th>Delete</th>
+
+					  </tr>
+
+
+					  <div id = "Products">
+
+						  <!-- todo set data here -->
+						  <tr id = 'productId'>
+						    <td>Apple</td>
+						    <td>Descriptioon</td>
+						    <td>10</td>
+						    <td>
+						    	<div class="column">1</div>
+	  							<div class="column">
+						   	 		<button class="table_button" id="change_quantity_button">Change</button>
+	  								
+	  							</div>
+							</td>
+						    <td>Group1, group2, group3</td>
+						    <td><button class="table_button" id="edit_product_button">Edit</button></td>
+						    <td><button class="table_button" id="delete_product_button">Delete</button></td>
+
+						  </tr>
+
+					  </div>	
+
+					  
+				</table>
+		</div>
+
+		<!-- Groups -->
+		<div id="Groups" class="tabcontent">
+
+				<table>
+					  <tr>
+					    <th>Name</th>
+					    <th>Description</th>
+					    <th>Edit</th>
+					    <th>Delete</th>
+					  </tr>
+
+					  <!-- todo set data here -->
+					  <tr>
+					    <td>Fruits</td>
+					    <td>Descriptioooooooooooooooooooooooooooooooon</td>
+					    <td><button class="table_button" id="edit_group_button">Edit</button></td>
+					    <td><button class="table_button" id="delete_group_button">Delete</button></td>
+					  </tr>
+					  
+				</table>
+		</div>
+
+
+		<!-- Creation -->
+
+		<div id="Create" class="tabcontent">
+	  			<!-- Tab links -->
+			<div class="tab">
+	  			<button class="subtablinks" id="defaultSubOpen" onclick="openSubTab(event, 'CreateProduct')" >Create product</button>
+
+	  			<button class="subtablinks" onclick="openSubTab(event, 'CreateGroup')">Create group</button>
+
+			</div>
+		</div>
+
+
+		<div id="CreateProduct" class="tabcontent subtabcontent">
+		  	<input class="inputs" id="input_product_name" type="text" placeholder="Name"><br>
+
+		  	<textarea class="inputs" id="input_product_description" type="text" placeholder="Description"></textarea><br>
+
+		  	<input class="inputs" id="input_product_price" type="number" placeholder="Price"><br>
+
+		  	<input class="inputs" id="input_product_quantity" type="number" placeholder="Quantity"><br>
+
+		  	<textarea class="inputs" id="input_product_groups" type="text" placeholder="Groups"></textarea><br>
+
+
+		  	<button class="button" id="create_product_button">Create</button>
+		</div>
+
+		<div id="CreateGroup" class="tabcontent subtabcontent">
+		  	<input class="inputs" id="input_product_name" type="text" placeholder="Name"><br>
+
+		  	<textarea class="inputs" id="input_product_description" type="text" placeholder="Description"></textarea><br>
+
+		  	<button class="button" id="create_group_button">Create</button>
+		</div>
+
+
+
+
+
+		<!-- Edit Product Modal -->
+		<div id="edit_product_modal" class="modal">
+
+		  <!-- Modal content -->
+		  <div class="modal-content">
+		    <div class="modal-header">
+		      <span class="close" id="close_edit_product">&times;</span>
+		      <h2>Edit</h2>
+		    </div>
+		    <div class="modal-body">
+		      	
+		      	<input class="inputs_modal inputs" id="edit_product_name" type="text" placeholder="Name"><br>
+
+			  	<textarea class="inputs_modal inputs" id="edit_product_description" style="resize: none;" type="text" placeholder="Description"></textarea><br>
+
+			  	<input class="inputs_modal inputs" id="edit_product_price" type="number" placeholder="Price"><br>
+
+			  	<!-- <input class="inputs" id="input_product_quantity" type="number" placeholder="Quantity"><br> -->
+
+			  	<textarea class="inputs_modal inputs" id="edit_product_groups" style="resize: none;" type="text" placeholder="Groups"></textarea><br>
+
+
+			  	<button class="button" id="edit_product_button">Edit</button>
+
+
+		    </div>
+		  </div>
+		</div>
+
+<!-- Edit Group Modal -->
+		<div id="edit_group_modal" class="modal">
+
+		  <!-- Modal content  -->
+		  <div class="modal-content">
+		    <div class="modal-header">
+		      <span class="close" id="close_edit_group">&times;</span>
+		      <h2>Edit</h2>
+		    </div>
+		    <div class="modal-body">
+		      	
+		      	<input class="inputs_modal inputs" id="edit_group_name" type="text" placeholder="Name"><br>
+
+			  	<textarea class="inputs_modal inputs" id="edit_group_description" style="resize: none;" type="text" placeholder="Description"></textarea><br>
+
+			  	<button class="button" id="edit_group_button">Edit</button>
+
+
+		    </div>
+		  </div>
+		</div>
+
+		<!-- Delete Product Modal -->
+		<div id="delete_product_modal" class="modal">
+
+		  <!-- Modal content  -->
+		  <div class="modal-content">
+		    <div class="modal-header">
+		      <span class="close" id="close_delete_product">&times;</span>
+		      <h2>Are you sure to delete this product?</h2>
+		    </div>
+		    <div class="modal-body">
+
+		    	<div class="column">
+		    		<button class="button_center button" id="delete_product_button_submit">Yes</button>
+		    	</div>
+
+		    	<div class="column">
+		    		<button class="button_center button" id="delete_product_button_cancel">No</button>
+		    	</div>
+		     
+
+		    </div>
+		  </div>
+		</div>
+
+
+		<!-- Delete Group Modal -->
+		<div id="delete_group_modal" class="modal">
+
+		  <!-- Modal content  -->
+		  <div class="modal-content">
+		    <div class="modal-header">
+		      <span class="close" id="close_delete_group">&times;</span>
+		      <h2>Are you sure to delete this group and it's products?</h2>
+		    </div>
+		    <div class="modal-body">
+
+		    	<div class="column">
+		    		<button class="button_center button" id="delete_group_button_submit">Yes</button>
+		    	</div>
+
+		    	<div class="column">
+		    		<button class="button_center button" id="delete_group_button_cancel">No</button>
+		    	</div>
+		     
+
+		    </div>
+		  </div>
+		</div>
+
+
+		<!-- Change Quantity Modal -->
+		<div id="change_quantity_modal" class="modal">
+
+		  <!-- Modal content  -->
+		  <div class="modal-content">
+		    <div class="modal-header">
+		      <span class="close" id="close_change_quantity">&times;</span>
+		      <h2>Add or write off good</h2>
+		    </div>
+		    <div class="modal-body">
+
+		    	<br>
+		    	<div class="tab">
+		  			<button class="quantitytablinks" id="defaultQuantityOpen" onclick="openQuantityTab(event, 'AddGood')" >Add good</button>
+
+		  			<button class="quantitytablinks" onclick="openQuantityTab(event, 'WriteOffGood')">Write off good</button>
+
+				</div>	
+
+
+
+				<div id="AddGood" class="tabcontent quantitytabcontent">
+				  	<input class="inputs" id="input_product_quantity_add" type="number" placeholder="Quantity"><br>
+
+				  	<button class="button" id="add_good_button">Submit</button>
+				</div>
+
+				<div id="WriteOffGood" class="tabcontent quantitytabcontent">
+				  	<input class="inputs" id="input_product_quantity" type="number" placeholder="Quantity"><br>
+
+				  	<button class="button" id="write_off_good_button">Submit</button>
+				</div>	     
+
+		    </div>
+		  </div>
+		</div>
+
+
+		
+
+
+		
+
+
+</body>
+
+	
+	<footer class="footer">
+		<div class="footer_text">Authors: Ihor Yankin & Anna Hinkul</div>
+	</footer>
+
+
+	
+</body>
+</html>
+
+
