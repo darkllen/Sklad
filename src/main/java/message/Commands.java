@@ -1,0 +1,5 @@
+package message;
+
+public enum Commands {
+    PRODUCT_NUMBER, MINUS_PRODUCT, ADD_PRODUCT, ADD_GROUP, ADD_PRODUCT_TO_GROUP, SET_PRICE
+}
