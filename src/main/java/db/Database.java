@@ -164,7 +164,7 @@ public class Database {
         return getAllProducts().stream().filter(x->x.getName().equals(name)).collect(Collectors.toList()).get(0);
     }
 
-    public void incrementProductQuantity(int id, int num){
+    public int incrementProductQuantity(int id, int num){
         try{
             PreparedStatement statement = connection.prepareStatement("UPDATE product SET num =num + ? WHERE product_id = ?");
             //statement.setInt(1, 1);
@@ -172,21 +172,30 @@ public class Database {
             statement.setInt(2, id);
             int result = statement.executeUpdate();
             statement.close();
+            return result;
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return -1;
     }
-    public void decrementProductQuantity(int id, int num){
+    public int decrementProductQuantity(int id, int num){
         try{
-            PreparedStatement statement = connection.prepareStatement("UPDATE product SET num =num - ? WHERE product_id = ?");
+            PreparedStatement statement = connection.prepareStatement("UPDATE product SET num =case\n" +
+                    "                  when num - ? < 0 then null\n" +
+                    "                  else num - ?\n" +
+                    "                 end WHERE product_id = ?");
             //statement.setInt(1, 1);
             statement.setInt(1, num);
-            statement.setInt(2, id);
+            statement.setInt(2, num);
+            statement.setInt(3, id);
             int result = statement.executeUpdate();
             statement.close();
+            return result;
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return -1;
     }
 
     public ArrayList<User> getAllUsers(){

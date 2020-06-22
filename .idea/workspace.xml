@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8f058613-d825-4902-ad0e-c7ad4e1ced41" name="Default Changelist" comment="" />
+    <list default="true" id="8f058613-d825-4902-ad0e-c7ad4e1ced41" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/db/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/db/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/HTTPClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/HTTPClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/HTTPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/HTTPServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/HTTPClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/HTTPClientTest.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -93,12 +101,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/db/Database.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="774">
-              <caret line="211" lean-forward="true" selection-start-line="211" selection-end-line="211" />
+            <state relative-caret-position="179">
+              <caret line="180" column="34" lean-forward="true" selection-start-line="180" selection-start-column="34" selection-end-line="180" selection-end-column="34" />
               <folding>
                 <element signature="method#close#0;class#Database#0" />
                 <element signature="method#Database#1;class#Database#0" />
-                <element signature="method#createProductGroup#0;class#Database#0" />
                 <element signature="method#createProduct#1;class#Database#0" />
                 <element signature="e#3230#3481#0" />
                 <element signature="e#3274#3346#1" />
@@ -113,13 +120,12 @@
                 <element signature="e#5078#5135#0" />
                 <element signature="method#getGroupByName#0;class#Database#0" />
                 <element signature="method#getGroupByName#1;class#Database#0" />
+                <element signature="method#getAllProducts#0;class#Database#0" />
                 <element signature="e#7628#7697#0" />
                 <element signature="method#getAllProductsForGroup#0;class#Database#0" />
                 <element signature="method#getProductById#0;class#Database#0" />
                 <element signature="method#getProductByName#0;class#Database#0" />
-                <element signature="method#incrementProductQuantity#0;class#Database#0" />
                 <element signature="e#7778#7822#0" />
-                <element signature="method#incrementProductQuantity#1;class#Database#0" />
                 <element signature="e#8120#8164#0" />
                 <element signature="method#getAllGroups#1;class#Database#0" />
                 <element signature="e#6543#6549#0" expanded="true" />
@@ -161,11 +167,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/server/HTTPServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-414">
-              <caret line="199" column="68" lean-forward="true" selection-start-line="199" selection-start-column="68" selection-end-line="199" selection-end-column="68" />
+            <state relative-caret-position="391">
+              <caret line="364" column="14" lean-forward="true" selection-start-line="364" selection-start-column="14" selection-end-line="364" selection-end-column="14" />
               <folding>
                 <element signature="e#1176#1399#1" />
                 <element signature="e#1654#1715#0" />
+                <element signature="method#returnError#0;class#HTTPServer#0" />
                 <element signature="class#LoginHandler#0;class#HTTPServer#0" />
                 <element signature="method#handle#0;class#LoginHandler#0;class#HTTPServer#0" />
                 <element signature="e#2087#2390#1" />
@@ -175,7 +182,6 @@
                 <element signature="e#2611#2856#1" />
                 <element signature="e#2702#2773#1" />
                 <element signature="e#2777#2842#1" />
-                <element signature="method#returnError#0;class#LoginHandler#0;class#HTTPServer#0" />
                 <element signature="method#returnToken#0;class#LoginHandler#0;class#HTTPServer#0" />
                 <element signature="method#createJWT#0;class#LoginHandler#0;class#HTTPServer#0" />
                 <element signature="e#4455#4507#0" />
@@ -190,16 +196,29 @@
                 <element signature="e#7536#8600#0" />
                 <element signature="e#8178#8289#1" />
                 <element signature="e#8630#8651#0" />
+                <element signature="e#8792#9250#1" />
+                <element signature="e#8814#9144#0" />
                 <element signature="method#returnId#0;class#GoodHandler#0;class#HTTPServer#0" />
-                <element signature="method#returnError#0;class#GoodHandler#0;class#HTTPServer#0" />
+                <element signature="method#returnProduct#0;class#GoodHandler#0;class#HTTPServer#0" />
+                <element signature="class#SpecificGoodHandler#0;class#HTTPServer#0" />
+                <element signature="method#handle#0;class#SpecificGoodHandler#0;class#HTTPServer#0" />
                 <element signature="e#11284#11552#0" />
                 <element signature="e#11586#11673#0" />
                 <element signature="e#11732#11819#1" />
+                <element signature="e#9935#10393#1" />
+                <element signature="e#9957#10287#0" />
                 <element signature="e#10225#10803#1" />
                 <element signature="e#10247#10671#0" />
                 <element signature="e#10430#10604#0" />
                 <element signature="method#returnProduct#0;class#SpecificGoodHandler#0;class#HTTPServer#0" />
-                <element signature="method#returnError#0;class#SpecificGoodHandler#0;class#HTTPServer#0" />
+                <element signature="e#13209#13477#0" />
+                <element signature="e#13511#13598#0" />
+                <element signature="e#13657#13744#1" />
+                <element signature="e#14802#14823#0" />
+                <element signature="e#14554#14822#0" />
+                <element signature="e#14856#14943#0" />
+                <element signature="e#15002#15089#1" />
+                <element signature="e#15916#15937#0" />
               </folding>
             </state>
           </provider>
@@ -208,8 +227,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/HTTPClientTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="151" column="55" selection-start-line="151" selection-start-column="55" selection-end-line="151" selection-end-column="55" />
+            <state relative-caret-position="436">
+              <caret line="202" column="47" selection-start-line="202" selection-start-column="47" selection-end-line="202" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -218,10 +237,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/message/WrongCrcException.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/DatabaseTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="190">
+              <caret line="144" column="17" selection-start-line="144" selection-start-column="17" selection-end-line="144" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -262,10 +281,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/server/HTTPClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="143" column="35" lean-forward="true" selection-start-line="143" selection-start-column="35" selection-end-line="143" selection-end-column="35" />
+            <state relative-caret-position="156">
+              <caret line="168" column="28" lean-forward="true" selection-start-line="168" selection-start-column="28" selection-end-line="168" selection-end-column="28" />
               <folding>
-                <element signature="method#updateProduct#0;class#HTTPClient#0" />
+                <element signature="method#getAllProducts#0;class#HTTPClient#0" />
               </folding>
             </state>
           </provider>
@@ -280,19 +299,22 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/model/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/ProductGroup.java" />
         <option value="$PROJECT_DIR$/src/test/java/DatabaseTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/db/Database.java" />
         <option value="$PROJECT_DIR$/src/main/java/message/Encryption.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/HTTPServer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/Product.java" />
+        <option value="$PROJECT_DIR$/src/main/java/db/Database.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/HTTPClient.java" />
         <option value="$PROJECT_DIR$/src/test/java/HTTPClientTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/Product.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/HTTPServer.java" />
       </list>
     </option>
   </component>
@@ -309,6 +331,7 @@
     <option name="width" value="1287" />
     <option name="height" value="774" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -394,6 +417,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="database.console.LAST_STATE" value="false" />
@@ -436,7 +460,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.HTTPClientTest.getAllProducts">
+  <component name="RunManager" selected="JUnit.HTTPClientTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Sklad" />
@@ -448,15 +472,6 @@
       <module name="Sklad" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DatabaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Sklad" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="DatabaseTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -480,13 +495,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="HTTPClientTest.incrementProductNum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Sklad" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="HTTPClientTest" />
+      <option name="METHOD_NAME" value="incrementProductNum" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.HTTPClientTest.getAllProducts" />
         <item itemvalue="JUnit.HTTPClientTest" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.All in Sklad" />
-        <item itemvalue="JUnit.DatabaseTest" />
+        <item itemvalue="JUnit.HTTPClientTest.incrementProductNum" />
+        <item itemvalue="JUnit.HTTPClientTest.getAllProducts" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -500,44 +525,44 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1592751310954</updated>
-      <workItem from="1592751314537" duration="14480000" />
+      <workItem from="1592751314537" duration="16925000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DatabaseTest - 2020.06.21 at 20h 32m 28s.xml">
-      <configuration name="DatabaseTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DatabaseTest - 2020.06.21 at 20h 33m 50s.xml">
-      <configuration name="DatabaseTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_Sklad - 2020.06.22 at 01h 52m 27s.xml">
-      <configuration name="All in Sklad" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_Sklad - 2020.06.22 at 01h 55m 14s.xml">
-      <configuration name="All in Sklad" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_Sklad - 2020.06.22 at 01h 58m 40s.xml">
-      <configuration name="All in Sklad" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_Sklad - 2020.06.22 at 02h 00m 31s.xml">
-      <configuration name="All in Sklad" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_Sklad - 2020.06.22 at 02h 01m 06s.xml">
-      <configuration name="All in Sklad" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HTTPClientTest - 2020.06.22 at 14h 22m 58s.xml">
-      <configuration name="HTTPClientTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="HTTPClientTest - 2020.06.22 at 14h 25m 05s.xml">
       <configuration name="HTTPClientTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="HTTPClientTest - 2020.06.22 at 14h 26m 46s.xml">
       <configuration name="HTTPClientTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="HTTPClientTest_getAllProducts - 2020.06.22 at 14h 36m 41s.xml">
+      <configuration name="HTTPClientTest.getAllProducts" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HTTPClientTest_getAllProducts - 2020.06.22 at 14h 36m 55s.xml">
+      <configuration name="HTTPClientTest.getAllProducts" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HTTPClientTest_incrementProductNum - 2020.06.22 at 15h 05m 46s.xml">
+      <configuration name="HTTPClientTest.incrementProductNum" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HTTPClientTest_incrementProductNum - 2020.06.22 at 15h 05m 57s.xml">
+      <configuration name="HTTPClientTest.incrementProductNum" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_Sklad - 2020.06.22 at 15h 06m 21s.xml">
+      <configuration name="All in Sklad" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_Sklad - 2020.06.22 at 15h 07m 38s.xml">
+      <configuration name="All in Sklad" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HTTPClientTest - 2020.06.22 at 15h 16m 28s.xml">
+      <configuration name="HTTPClientTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HTTPClientTest - 2020.06.22 at 15h 16m 39s.xml">
+      <configuration name="HTTPClientTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14480000" />
+    <option name="totallyTimeSpent" value="16925000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -615,102 +640,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/DatabaseTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="144" column="17" selection-start-line="144" selection-start-column="17" selection-end-line="144" selection-end-column="17" />
-          <folding>
-            <element signature="e#3006#3007#0" expanded="true" />
-            <element signature="e#3065#3066#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/message/Message.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/db/Database.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="774">
-          <caret line="211" lean-forward="true" selection-start-line="211" selection-end-line="211" />
-          <folding>
-            <element signature="method#close#0;class#Database#0" />
-            <element signature="method#Database#1;class#Database#0" />
-            <element signature="method#createProductGroup#0;class#Database#0" />
-            <element signature="method#createProduct#1;class#Database#0" />
-            <element signature="e#3230#3481#0" />
-            <element signature="e#3274#3346#1" />
-            <element signature="e#3368#3467#1" />
-            <element signature="e#3549#4435#1" />
-            <element signature="e#0#122#2" />
-            <element signature="e#4022#4421#1" />
-            <element signature="e#0#61#1" />
-            <element signature="e#48#61#0" />
-            <element signature="method#getAllGroups#0;class#Database#0" />
-            <element signature="e#3247#3261#0" expanded="true" />
-            <element signature="e#5078#5135#0" />
-            <element signature="method#getGroupByName#0;class#Database#0" />
-            <element signature="method#getGroupByName#1;class#Database#0" />
-            <element signature="e#7628#7697#0" />
-            <element signature="method#getAllProductsForGroup#0;class#Database#0" />
-            <element signature="method#getProductById#0;class#Database#0" />
-            <element signature="method#getProductByName#0;class#Database#0" />
-            <element signature="method#incrementProductQuantity#0;class#Database#0" />
-            <element signature="e#7778#7822#0" />
-            <element signature="method#incrementProductQuantity#1;class#Database#0" />
-            <element signature="e#8120#8164#0" />
-            <element signature="method#getAllGroups#1;class#Database#0" />
-            <element signature="e#6543#6549#0" expanded="true" />
-            <element signature="e#7019#7088#0" />
-            <element signature="method#getProductWithPriceMore#0;class#Database#0" />
-            <element signature="method#getProductWithPriceLess#0;class#Database#0" />
-            <element signature="method#getProductWithPriceBeetween#0;class#Database#0" />
-            <element signature="method#getProductWithNumMore#0;class#Database#0" />
-            <element signature="method#getProductWithNumLess#0;class#Database#0" />
-            <element signature="method#getProductWithNumBeetween#0;class#Database#0" />
-            <element signature="e#9728#9772#0" />
-            <element signature="method#updateProduct#0;class#Database#0" />
-            <element signature="e#10560#11459#1" />
-            <element signature="e#0#122#2" />
-            <element signature="e#0#61#1" />
-            <element signature="e#48#61#0" />
-            <element signature="e#11521#11565#0" />
-            <element signature="method#deleteGroup#0;class#Database#0" />
-            <element signature="e#11930#12024#1" />
-            <element signature="e#0#40#1" />
-            <element signature="e#12309#12345#0" />
-            <element signature="method#deleteGroup#1;class#Database#0" />
-            <element signature="e#11080#11174#1" />
-            <element signature="e#11459#11495#0" />
-            <element signature="method#deleteProduct#0;class#Database#0" />
-            <element signature="e#12411#12707#0" />
-            <element signature="e#0#40#1" />
-            <element signature="e#12731#12775#0" />
-            <element signature="method#deleteProduct#1;class#Database#0" />
-            <element signature="e#0#40#1" />
-            <element signature="e#13232#13276#0" />
-            <element signature="method#deleteProduct#2;class#Database#0" />
-            <element signature="e#13652#13696#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/ProductGroup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6">
-          <caret line="12" column="39" lean-forward="true" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
-          <folding>
-            <element signature="e#670#671#0" expanded="true" />
-            <element signature="e#704#705#0" expanded="true" />
-            <element signature="e#758#759#0" expanded="true" />
-            <element signature="e#804#805#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -749,16 +684,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/HTTPClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="143" column="35" lean-forward="true" selection-start-line="143" selection-start-column="35" selection-end-line="143" selection-end-column="35" />
-          <folding>
-            <element signature="method#updateProduct#0;class#HTTPClient#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/Product.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="249">
@@ -779,13 +704,108 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/ProductGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6">
+          <caret line="12" column="39" lean-forward="true" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+          <folding>
+            <element signature="e#670#671#0" expanded="true" />
+            <element signature="e#704#705#0" expanded="true" />
+            <element signature="e#758#759#0" expanded="true" />
+            <element signature="e#804#805#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/DatabaseTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="144" column="17" selection-start-line="144" selection-start-column="17" selection-end-line="144" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/HTTPClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="168" column="28" lean-forward="true" selection-start-line="168" selection-start-column="28" selection-end-line="168" selection-end-column="28" />
+          <folding>
+            <element signature="method#getAllProducts#0;class#HTTPClient#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/db/Database.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="180" column="34" lean-forward="true" selection-start-line="180" selection-start-column="34" selection-end-line="180" selection-end-column="34" />
+          <folding>
+            <element signature="method#close#0;class#Database#0" />
+            <element signature="method#Database#1;class#Database#0" />
+            <element signature="method#createProduct#1;class#Database#0" />
+            <element signature="e#3230#3481#0" />
+            <element signature="e#3274#3346#1" />
+            <element signature="e#3368#3467#1" />
+            <element signature="e#3549#4435#1" />
+            <element signature="e#0#122#2" />
+            <element signature="e#4022#4421#1" />
+            <element signature="e#0#61#1" />
+            <element signature="e#48#61#0" />
+            <element signature="method#getAllGroups#0;class#Database#0" />
+            <element signature="e#3247#3261#0" expanded="true" />
+            <element signature="e#5078#5135#0" />
+            <element signature="method#getGroupByName#0;class#Database#0" />
+            <element signature="method#getGroupByName#1;class#Database#0" />
+            <element signature="method#getAllProducts#0;class#Database#0" />
+            <element signature="e#7628#7697#0" />
+            <element signature="method#getAllProductsForGroup#0;class#Database#0" />
+            <element signature="method#getProductById#0;class#Database#0" />
+            <element signature="method#getProductByName#0;class#Database#0" />
+            <element signature="e#7778#7822#0" />
+            <element signature="e#8120#8164#0" />
+            <element signature="method#getAllGroups#1;class#Database#0" />
+            <element signature="e#6543#6549#0" expanded="true" />
+            <element signature="e#7019#7088#0" />
+            <element signature="method#getProductWithPriceMore#0;class#Database#0" />
+            <element signature="method#getProductWithPriceLess#0;class#Database#0" />
+            <element signature="method#getProductWithPriceBeetween#0;class#Database#0" />
+            <element signature="method#getProductWithNumMore#0;class#Database#0" />
+            <element signature="method#getProductWithNumLess#0;class#Database#0" />
+            <element signature="method#getProductWithNumBeetween#0;class#Database#0" />
+            <element signature="e#9728#9772#0" />
+            <element signature="method#updateProduct#0;class#Database#0" />
+            <element signature="e#10560#11459#1" />
+            <element signature="e#0#122#2" />
+            <element signature="e#0#61#1" />
+            <element signature="e#48#61#0" />
+            <element signature="e#11521#11565#0" />
+            <element signature="method#deleteGroup#0;class#Database#0" />
+            <element signature="e#11930#12024#1" />
+            <element signature="e#0#40#1" />
+            <element signature="e#12309#12345#0" />
+            <element signature="method#deleteGroup#1;class#Database#0" />
+            <element signature="e#11080#11174#1" />
+            <element signature="e#11459#11495#0" />
+            <element signature="method#deleteProduct#0;class#Database#0" />
+            <element signature="e#12411#12707#0" />
+            <element signature="e#0#40#1" />
+            <element signature="e#12731#12775#0" />
+            <element signature="method#deleteProduct#1;class#Database#0" />
+            <element signature="e#0#40#1" />
+            <element signature="e#13232#13276#0" />
+            <element signature="method#deleteProduct#2;class#Database#0" />
+            <element signature="e#13652#13696#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/HTTPServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-414">
-          <caret line="199" column="68" lean-forward="true" selection-start-line="199" selection-start-column="68" selection-end-line="199" selection-end-column="68" />
+        <state relative-caret-position="391">
+          <caret line="364" column="14" lean-forward="true" selection-start-line="364" selection-start-column="14" selection-end-line="364" selection-end-column="14" />
           <folding>
             <element signature="e#1176#1399#1" />
             <element signature="e#1654#1715#0" />
+            <element signature="method#returnError#0;class#HTTPServer#0" />
             <element signature="class#LoginHandler#0;class#HTTPServer#0" />
             <element signature="method#handle#0;class#LoginHandler#0;class#HTTPServer#0" />
             <element signature="e#2087#2390#1" />
@@ -795,7 +815,6 @@
             <element signature="e#2611#2856#1" />
             <element signature="e#2702#2773#1" />
             <element signature="e#2777#2842#1" />
-            <element signature="method#returnError#0;class#LoginHandler#0;class#HTTPServer#0" />
             <element signature="method#returnToken#0;class#LoginHandler#0;class#HTTPServer#0" />
             <element signature="method#createJWT#0;class#LoginHandler#0;class#HTTPServer#0" />
             <element signature="e#4455#4507#0" />
@@ -810,24 +829,37 @@
             <element signature="e#7536#8600#0" />
             <element signature="e#8178#8289#1" />
             <element signature="e#8630#8651#0" />
+            <element signature="e#8792#9250#1" />
+            <element signature="e#8814#9144#0" />
             <element signature="method#returnId#0;class#GoodHandler#0;class#HTTPServer#0" />
-            <element signature="method#returnError#0;class#GoodHandler#0;class#HTTPServer#0" />
+            <element signature="method#returnProduct#0;class#GoodHandler#0;class#HTTPServer#0" />
+            <element signature="class#SpecificGoodHandler#0;class#HTTPServer#0" />
+            <element signature="method#handle#0;class#SpecificGoodHandler#0;class#HTTPServer#0" />
             <element signature="e#11284#11552#0" />
             <element signature="e#11586#11673#0" />
             <element signature="e#11732#11819#1" />
+            <element signature="e#9935#10393#1" />
+            <element signature="e#9957#10287#0" />
             <element signature="e#10225#10803#1" />
             <element signature="e#10247#10671#0" />
             <element signature="e#10430#10604#0" />
             <element signature="method#returnProduct#0;class#SpecificGoodHandler#0;class#HTTPServer#0" />
-            <element signature="method#returnError#0;class#SpecificGoodHandler#0;class#HTTPServer#0" />
+            <element signature="e#13209#13477#0" />
+            <element signature="e#13511#13598#0" />
+            <element signature="e#13657#13744#1" />
+            <element signature="e#14802#14823#0" />
+            <element signature="e#14554#14822#0" />
+            <element signature="e#14856#14943#0" />
+            <element signature="e#15002#15089#1" />
+            <element signature="e#15916#15937#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/HTTPClientTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="151" column="55" selection-start-line="151" selection-start-column="55" selection-end-line="151" selection-end-column="55" />
+        <state relative-caret-position="436">
+          <caret line="202" column="47" selection-start-line="202" selection-start-column="47" selection-end-line="202" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

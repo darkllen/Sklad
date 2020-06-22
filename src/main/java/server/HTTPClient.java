@@ -141,6 +141,56 @@ public class HTTPClient {
         return false;
     }
 
+    public boolean incrementProductNum(int id, int num) throws IOException {
+        OkHttpClient client = new OkHttpClient();
+
+        JSONObject jsonObject = new JSONObject()
+                .put("num", num)
+                .put("id", id);
+
+
+        MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+        RequestBody body = RequestBody.create(JSON, jsonObject.toString());
+
+        Request request = new Request.Builder()
+                .header("token", token)
+                .url("http://localhost:8001/api/good/increment")
+                .post(body)
+                .build();
+        Response response = client.newCall(request).execute();
+        if (response.code()==204){
+            response.body().close();
+            return true;
+        }
+        response.body().close();
+        return false;
+    }
+
+    public boolean decrementProductNum(int id, int num) throws IOException {
+        OkHttpClient client = new OkHttpClient();
+
+        JSONObject jsonObject = new JSONObject()
+                .put("num", num)
+                .put("id", id);
+
+
+        MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+        RequestBody body = RequestBody.create(JSON, jsonObject.toString());
+
+        Request request = new Request.Builder()
+                .header("token", token)
+                .url("http://localhost:8001/api/good/decrement")
+                .post(body)
+                .build();
+        Response response = client.newCall(request).execute();
+        if (response.code()==204){
+            response.body().close();
+            return true;
+        }
+        response.body().close();
+        return false;
+    }
+
     public ArrayList<Product> getAllProducts() throws IOException {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()

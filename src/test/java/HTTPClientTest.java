@@ -149,4 +149,57 @@ class HTTPClientTest {
         ArrayList<Product> products= client.getAllProducts();
         assertIterableEquals(productsFromDb, products);
     }
+    @Test
+    void incrementProductNum() throws SQLException, NoSuchAlgorithmException, IOException, AuthenticationException {
+        HTTPClient client = new HTTPClient();
+        client.login(login,password);
+        Database database = new Database();
+        Product product = database.getAllProducts().get(0);
+        System.out.println(product);
+        assertTrue(client.incrementProductNum(product.getId(), 1));
+    }
+
+    @Test
+    void incrementProductNumMinus() throws SQLException, NoSuchAlgorithmException, IOException, AuthenticationException {
+        HTTPClient client = new HTTPClient();
+        client.login(login,password);
+        Database database = new Database();
+        Product product = database.getAllProducts().get(0);
+        System.out.println(product);
+        assertFalse(client.incrementProductNum(product.getId(), -3));
+    }
+    @Test
+    void incrementProductNumWrongId() throws SQLException, NoSuchAlgorithmException, IOException, AuthenticationException {
+        HTTPClient client = new HTTPClient();
+        client.login(login,password);
+        Product product = new Product(3000, "a", new ArrayList<>(), 100,100, "q", "w");
+        assertFalse(client.incrementProductNum(product.getId(), 3));
+    }
+
+    @Test
+    void decrementProductNum() throws SQLException, NoSuchAlgorithmException, IOException, AuthenticationException {
+        HTTPClient client = new HTTPClient();
+        client.login(login,password);
+        Database database = new Database();
+        Product product = database.getAllProducts().get(0);
+        System.out.println(product);
+        assertTrue(client.decrementProductNum(product.getId(), 2));
+    }
+
+    @Test
+    void decrementProductNumMinus() throws SQLException, NoSuchAlgorithmException, IOException, AuthenticationException {
+        HTTPClient client = new HTTPClient();
+        client.login(login,password);
+        Database database = new Database();
+        Product product = database.getAllProducts().get(0);
+        System.out.println(product);
+        assertFalse(client.decrementProductNum(product.getId(), -3));
+    }
+    @Test
+    void decrementProductNumWrongId() throws SQLException, NoSuchAlgorithmException, IOException, AuthenticationException {
+        HTTPClient client = new HTTPClient();
+        client.login(login,password);
+        Product product = new Product(3000, "a", new ArrayList<>(), 100,100, "q", "w");
+        assertFalse(client.decrementProductNum(product.getId(), 3));
+    }
 }

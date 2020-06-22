@@ -47,6 +47,8 @@ public class HTTPServer {
         server.createContext("/login", new  LoginHandler());
         server.createContext("/api/good/", new SpecificGoodHandler());
         server.createContext("/api/good", new GoodHandler());
+        server.createContext("/api/good/increment", new IncrementHandler());
+        server.createContext("/api/good/decrement", new DecrementHandler());
         //    server.createContext("/api/group", new GroupHandler());
         //    server.createContext("/api/group/", new GroupHandler());
 
@@ -56,7 +58,12 @@ public class HTTPServer {
         server.start();
     }
 
-    private static class LoginHandler implements HttpHandler {
+    private void returnError(HttpExchange httpExchange, int code) throws IOException {
+        httpExchange.sendResponseHeaders(code, 0);
+
+    }
+
+    private class LoginHandler implements HttpHandler {
         public void handle(HttpExchange httpExchange) throws IOException {
             if("GET".equals(httpExchange.getRequestMethod())) {
                 Map<String, String> params = queryToMap(httpExchange.getRequestURI().getQuery());
@@ -68,7 +75,7 @@ public class HTTPServer {
                 } catch (SQLException ignored) {
                 }
             }
-            returnError(httpExchange);
+            returnError(httpExchange, 401);
         }
         private Map<String, String> queryToMap(String query) {
             Map<String, String> result = new HashMap<>();
@@ -81,9 +88,6 @@ public class HTTPServer {
                 }
             }
             return result;
-        }
-        private void returnError(HttpExchange httpExchange) throws IOException {
-            httpExchange.sendResponseHeaders(401, 0);
         }
         private void returnToken(HttpExchange httpExchange)  throws  IOException {
             OutputStream outputStream = httpExchange.getResponseBody();
@@ -128,7 +132,6 @@ public class HTTPServer {
             return builder.compact();
         }
     }
-
     private class GoodHandler implements HttpHandler {
         public void handle(HttpExchange httpExchange) throws IOException {
             Claims claims;
@@ -231,13 +234,7 @@ public class HTTPServer {
             outputStream.flush();
             outputStream.close();
         }
-
-        private void returnError(HttpExchange httpExchange, int code) throws IOException {
-            httpExchange.sendResponseHeaders(code, 0);
-
-        }
     }
-
     private class SpecificGoodHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange httpExchange) throws IOException {
@@ -295,10 +292,86 @@ public class HTTPServer {
             outputStream.flush();
             outputStream.close();
         }
-        private void returnError(HttpExchange httpExchange, int code) throws IOException {
-            httpExchange.sendResponseHeaders(code, 0);
 
-        }
 
     }
+
+
+
+    private class IncrementHandler implements HttpHandler {
+        @Override
+        public void handle(HttpExchange httpExchange) throws IOException {
+            Claims claims;
+            try{
+                claims = Jwts.parser()
+                        .setSigningKey(DatatypeConverter.parseBase64Binary(key))
+                        .parseClaimsJws(httpExchange.getRequestHeaders().getOrDefault("token", new ArrayList<>()).get(0)).getBody();
+            }catch (IllegalArgumentException e){
+                returnError(httpExchange,403 );
+                return;
+            }
+            if (!authorised.contains(claims.getSubject())){
+                returnError(httpExchange, 403);
+                return;
+            }
+            if("POST".equals(httpExchange.getRequestMethod())){
+                JSONObject object= new JSONObject(new BufferedReader(new InputStreamReader(httpExchange.getRequestBody(), StandardCharsets.UTF_8)).lines().collect(Collectors.joining("\n")));
+                try {
+                    Database database = new Database();
+                    int num = object.getInt("num");
+                    int id = object.getInt("id");
+
+                    if (num<=0){
+                        returnError(httpExchange, 409);
+                        return;
+                    }
+                    int res = database.incrementProductQuantity(id, num);
+                    if (res!=1) returnError(httpExchange,404);
+                    httpExchange.sendResponseHeaders(204, -1);
+                } catch (SQLException ignored) { ;
+                }
+                returnError(httpExchange,404);
+            }
+        }
+    }
+
+
+    private class DecrementHandler implements HttpHandler {
+        @Override
+        public void handle(HttpExchange httpExchange) throws IOException {
+            Claims claims;
+            try{
+                claims = Jwts.parser()
+                        .setSigningKey(DatatypeConverter.parseBase64Binary(key))
+                        .parseClaimsJws(httpExchange.getRequestHeaders().getOrDefault("token", new ArrayList<>()).get(0)).getBody();
+            }catch (IllegalArgumentException e){
+                returnError(httpExchange,403 );
+                return;
+            }
+            if (!authorised.contains(claims.getSubject())){
+                returnError(httpExchange, 403);
+                return;
+            }
+            if("POST".equals(httpExchange.getRequestMethod())){
+                JSONObject object= new JSONObject(new BufferedReader(new InputStreamReader(httpExchange.getRequestBody(), StandardCharsets.UTF_8)).lines().collect(Collectors.joining("\n")));
+                try {
+                    Database database = new Database();
+                    int num = object.getInt("num");
+                    int id = object.getInt("id");
+                    if (num<=0){
+                        returnError(httpExchange, 409);
+                        return;
+                    }
+                    int res = database.decrementProductQuantity(id, num);
+                    if (res!=1) returnError(httpExchange,404);
+                    httpExchange.sendResponseHeaders(204, -1);
+                } catch (SQLException ignored) { ;
+                }
+                returnError(httpExchange,404);
+            }
+        }
+    }
+
+
+
 }
