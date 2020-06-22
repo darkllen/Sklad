@@ -37,16 +37,16 @@ public class Crypt {
         byte[] encoded = Base64.getEncoder().encode(str.getBytes());
         return new String(encoded);
     }
-    public static void main(String a[]) throws Exception {
-        /*
+/*    public static void main(String a[]) throws Exception {
+        *//*
          * Secret Key must be in the form of 16 byte like,
          *
          * private static final byte[] secretKey = new byte[] { ‘m’, ‘u’, ‘s’, ‘t’, ‘b’,
          * ‘e’, ‘1’, ‘6’, ‘b’, ‘y’, ‘t’,’e’, ‘s’, ‘k’, ‘e’, ‘y’};
          *
          * below is the direct 16byte string we can use
-         */
-/*        String secretKey = "mustbe16byteskey";
+         *//*
+*//*        String secretKey = "mustbe16byteskey";
         String encodedBase64Key = encodeKey(secretKey);
         System.out.println("EncodedBase64Key = " + encodedBase64Key); // This need to be share between client and server
 // To check actual key from encoded base 64 secretKey
@@ -56,9 +56,9 @@ public class Crypt {
         System.out.println("Plain text = " + toEncrypt);
 // AES Encryption based on above secretKey
         String encrStr = Crypt.encrypt(toEncrypt, encodedBase64Key);
-        System.out.println("Cipher Text: Encryption of str = " + encrStr);*/
+        System.out.println("Cipher Text: Encryption of str = " + encrStr);*//*
 // AES Decryption based on above secretKey
         String decrStr = Crypt.decrypt("xsjuj1o+MZ8BPFJY/vKJnQ==", "asdasdasdasdasdaasdasd");
         System.out.println("Decryption of str = " + decrStr);
-    }
+    }*/
 }
