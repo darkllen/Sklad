@@ -274,6 +274,41 @@ public class HTTPClient {
         return -1;
     }
 
+    public ProductGroup getGroup(int id) throws IOException {
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .header("token", token)
+                .url("http://localhost:8001/api/group/"+id)
+                .get()
+                .build();
+        Response response = client.newCall(request).execute();
+        if (response.code()==200){
+            JSONObject object = new JSONObject(response.body().string());
+            ProductGroup productGroup = new ProductGroup(object.getInt("id"),
+                    object.getString("name"),
+                    object.getString("description"));
+            response.body().close();
+            return productGroup;
+        }
+        response.body().close();
+        return null;
+    }
+    public boolean deleteGroup(int id) throws IOException {
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .header("token", token)
+                .url("http://localhost:8001/api/group/"+id)
+                .delete()
+                .build();
+        Response response = client.newCall(request).execute();
+        if (response.code()==204){
+            response.body().close();
+            return true;
+        }
+        response.body().close();
+        return false;
+    }
+
     public boolean updateGroup(ProductGroup product) throws IOException {
         OkHttpClient client = new OkHttpClient();
 

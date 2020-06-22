@@ -51,6 +51,7 @@ public class HTTPServer {
         server.createContext("/api/good/increment", new IncrementHandler());
         server.createContext("/api/good/decrement", new DecrementHandler());
         server.createContext("/api/group", new GroupHandler());
+        server.createContext("/api/group/", new SpecificGroupHandler());
         //    server.createContext("/api/group", new GroupHandler());
         //    server.createContext("/api/group/", new GroupHandler());
 
@@ -458,5 +459,66 @@ public class HTTPServer {
             outputStream.flush();
             outputStream.close();
         }
+    }
+
+    private class SpecificGroupHandler implements HttpHandler {
+        @Override
+        public void handle(HttpExchange httpExchange) throws IOException {
+            Claims claims;
+            try{
+                claims = Jwts.parser()
+                        .setSigningKey(DatatypeConverter.parseBase64Binary(key))
+                        .parseClaimsJws(httpExchange.getRequestHeaders().getOrDefault("token", new ArrayList<>()).get(0)).getBody();
+            }catch (IllegalArgumentException e){
+                returnError(httpExchange,403 );
+                return;
+            }
+            if (!authorised.contains(claims.getSubject())){
+                returnError(httpExchange, 403);
+                return;
+            }
+
+            if ("GET".equals(httpExchange.getRequestMethod())) {
+                try {
+                    int id = Integer.parseInt(httpExchange.getRequestURI().toString().split("/")[3]);
+                    Database database = new Database();
+                    ProductGroup group = database.getGroupById(id);
+                    returnGroup(httpExchange, group);
+                    return;
+                }catch (Exception ignored){
+                }
+                returnError(httpExchange, 404);
+            }
+            else if("DELETE".equals(httpExchange.getRequestMethod())){
+                try {
+                    int id = Integer.parseInt(httpExchange.getRequestURI().toString().split("/")[3]);
+                    Database database = new Database();
+                    try{
+                        database.deleteGroupById(id);
+                        httpExchange.sendResponseHeaders(204, -1);
+                        return;
+                    } catch (Exception ignored){
+                    }
+                }catch (NumberFormatException | SQLException ignored){
+                }
+                returnError(httpExchange,404);
+            }
+        }
+
+        private void returnGroup(HttpExchange httpExchange, ProductGroup group) throws IOException {
+            OutputStream outputStream = httpExchange.getResponseBody();
+
+            ObjectMapper mapper = new ObjectMapper();
+
+            String htmlResponse = mapper.writeValueAsString(group);
+
+            httpExchange.sendResponseHeaders(200, htmlResponse.length());
+
+            outputStream.write(htmlResponse.getBytes());
+            outputStream.flush();
+            outputStream.close();
+        }
+
+
     }
 }

@@ -47,7 +47,6 @@ public class Database {
             statement.close();
             return id;
         }catch (SQLException e) {
-            e.printStackTrace();
             return -1;
         }
     }
@@ -345,6 +344,8 @@ public class Database {
             statement.setInt(1,id);
             int result = statement.executeUpdate();
             statement.close();
+            if (result==0)
+                throw new IllegalArgumentException("no group");
         } catch (SQLException e) {
             e.printStackTrace();
         }

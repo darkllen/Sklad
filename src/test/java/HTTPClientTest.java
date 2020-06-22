@@ -50,16 +50,21 @@ class HTTPClientTest {
     }
 
     @Test
-    void getProductExisted() throws IOException, AuthenticationException, NoSuchAlgorithmException {
+    void getProductExisted() throws IOException, AuthenticationException, NoSuchAlgorithmException, SQLException {
         HTTPClient client = new HTTPClient();
         client.login(login,password);
-        client.getProduct(1);
+        Database database = new Database();
+        Product product = database.getAllProducts().get(0);
+        Product fromDB = client.getProduct(product.getId());
+
+        assertEquals(product,fromDB);
     }
     @Test
     void getProductNotExisted() throws IOException, AuthenticationException, NoSuchAlgorithmException {
         HTTPClient client = new HTTPClient();
         client.login(login,password);
-        client.getProduct(20);
+        assertNull(client.getProduct(20000));
+
     }
 
     @Test
@@ -215,10 +220,6 @@ class HTTPClientTest {
     }
 
     @Test
-    void insertGroup() {
-    }
-
-    @Test
     void updateGroup() throws IOException, AuthenticationException, NoSuchAlgorithmException, SQLException {
         HTTPClient client = new HTTPClient();
         client.login(login,password);
@@ -244,4 +245,76 @@ class HTTPClientTest {
         ProductGroup product = new ProductGroup(3000, "a", "w");
         assertFalse(client.updateGroup(product));
     }
+
+
+
+    @Test
+    void insertGroup() throws IOException, AuthenticationException, NoSuchAlgorithmException {
+        HTTPClient client = new HTTPClient();
+        client.login(login,password);
+        int id = (client.insertGroup("azxxcv", "w"));
+        assertTrue(client.deleteGroup(id));
+    }
+    @Test
+    void insertGroupWrongInput() throws IOException, AuthenticationException, NoSuchAlgorithmException {
+        HTTPClient client = new HTTPClient();
+        client.login(login,password);
+        int id = (client.insertGroup("","w"));
+        assertEquals(id, -1);
+    }
+    @Test
+    void insertGroupDuplicateName() throws IOException, AuthenticationException, NoSuchAlgorithmException {
+        HTTPClient client = new HTTPClient();
+        client.login(login,password);
+        int id = (client.insertGroup("fruit","w"));
+        assertEquals(id, -1);
+    }
+
+
+
+    @Test
+    void deleteGroupWithoutLogin() throws IOException {
+        HTTPClient client = new HTTPClient();
+        assertFalse(client.deleteGroup(1));
+    }
+
+    @Test
+    void deleteGroupExisted() throws IOException, AuthenticationException, NoSuchAlgorithmException, SQLException {
+        HTTPClient client = new HTTPClient();
+        client.login(login,password);
+        int id = (client.insertGroup("azxxcv", "w"));
+        assertTrue(client.deleteGroup(id));
+    }
+    @Test
+    void deleteGroupNotExisted() throws IOException, AuthenticationException, NoSuchAlgorithmException {
+        HTTPClient client = new HTTPClient();
+        client.login(login,password);
+        assertFalse(client.deleteGroup(20000));
+    }
+
+
+    @Test
+    void getGroupWithoutLogin() throws IOException {
+        HTTPClient client = new HTTPClient();
+        Assertions.assertNull(client.getProduct(1));
+    }
+
+    @Test
+    void getGroupExisted() throws IOException, AuthenticationException, NoSuchAlgorithmException, SQLException {
+        HTTPClient client = new HTTPClient();
+        client.login(login,password);
+        Database database = new Database();
+        ProductGroup productGroup = database.getAllGroups().get(0);
+        ProductGroup fromDB = client.getGroup(productGroup.getId());
+
+        assertEquals(productGroup,fromDB);
+    }
+    @Test
+    void getGroupNotExisted() throws IOException, AuthenticationException, NoSuchAlgorithmException {
+        HTTPClient client = new HTTPClient();
+        client.login(login,password);
+        assertNull(client.getGroup(20000));
+    }
+
+
 }
