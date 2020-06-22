@@ -29,14 +29,23 @@ public class Database {
         return connection;
     }
 
-    public int createProductGroup(String name, String description) {
+    public long createProductGroup(String name, String description) {
         try{
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO p_group(p_group_name, description) VALUES (?, ?)");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO p_group(p_group_name, description) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, name);
             statement.setString(2, description);
             int result = statement.executeUpdate();
+            long id;
+            try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    id = (generatedKeys.getLong(1));
+                }
+                else {
+                    throw new SQLException("Creating failed, no ID obtained.");
+                }
+            }
             statement.close();
-            return result;
+            return id;
         }catch (SQLException e) {
             e.printStackTrace();
             return -1;
@@ -240,7 +249,7 @@ public class Database {
 
 
 
-    public void updateGroup(ProductGroup productGroup){
+    public int updateGroup(ProductGroup productGroup){
         try{
             PreparedStatement statement = connection.prepareStatement("UPDATE p_group SET `p_group_name` = ?, `description`= ? WHERE p_group_id = ?");
             //statement.setInt(1, 1);
@@ -250,9 +259,11 @@ public class Database {
 
             int result = statement.executeUpdate();
             statement.close();
+            return result;
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return -1;
     }
     public int updateProduct(Product product){
         try{

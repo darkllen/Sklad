@@ -10,6 +10,7 @@ import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import model.Product;
+import model.ProductGroup;
 import model.User;
 import org.json.JSONObject;
 
@@ -49,6 +50,7 @@ public class HTTPServer {
         server.createContext("/api/good", new GoodHandler());
         server.createContext("/api/good/increment", new IncrementHandler());
         server.createContext("/api/good/decrement", new DecrementHandler());
+        server.createContext("/api/group", new GroupHandler());
         //    server.createContext("/api/group", new GroupHandler());
         //    server.createContext("/api/group/", new GroupHandler());
 
@@ -295,9 +297,6 @@ public class HTTPServer {
 
 
     }
-
-
-
     private class IncrementHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange httpExchange) throws IOException {
@@ -334,8 +333,6 @@ public class HTTPServer {
             }
         }
     }
-
-
     private class DecrementHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange httpExchange) throws IOException {
@@ -372,6 +369,94 @@ public class HTTPServer {
         }
     }
 
+    private class GroupHandler implements HttpHandler {
+        public void handle(HttpExchange httpExchange) throws IOException {
+            Claims claims;
+            try{
+                claims = Jwts.parser()
+                        .setSigningKey(DatatypeConverter.parseBase64Binary(key))
+                        .parseClaimsJws(httpExchange.getRequestHeaders().getOrDefault("token", new ArrayList<>()).get(0)).getBody();
+            }catch (IllegalArgumentException e){
+                returnError(httpExchange,403 );
+                return;
+            }
+            if (!authorised.contains(claims.getSubject())){
+                returnError(httpExchange, 403);
+                return;
+            }
 
+            if("PUT".equals(httpExchange.getRequestMethod())){
+                JSONObject object= new JSONObject(new BufferedReader(new InputStreamReader(httpExchange.getRequestBody(), StandardCharsets.UTF_8)).lines().collect(Collectors.joining("\n")));
+                try {
+                    Database database = new Database();
+                    String name = object.getString("name");
+                    String description = object.getString("description");
+                    if (name.length() == 0) {
+                        returnError(httpExchange, 409);
+                        return;
+                    }
+                    long id = database.createProductGroup(
+                            name,
+                            description);
+                    returnId(httpExchange, id);
+                } catch (SQLException ignored) { ;
+                }
 
+                returnError(httpExchange,409);
+            }
+            else if("POST".equals(httpExchange.getRequestMethod())){
+                JSONObject object= new JSONObject(new BufferedReader(new InputStreamReader(httpExchange.getRequestBody(), StandardCharsets.UTF_8)).lines().collect(Collectors.joining("\n")));
+                try {
+                    Database database = new Database();
+                    String name = object.getString("name");
+                    int id = object.getInt("id");
+                    String description = object.getString("description");
+                    if (name.length() == 0) {
+                        returnError(httpExchange, 409);
+                        return;
+                    }
+                    ProductGroup group = new ProductGroup(id, name, description);
+                    int res = database.updateGroup(group);
+                    if (res!=1) returnError(httpExchange,404);
+                    httpExchange.sendResponseHeaders(204, -1);
+                } catch (SQLException ignored) { ;
+                }
+                returnError(httpExchange,404);
+            }
+            else if ("GET".equals(httpExchange.getRequestMethod())) {
+                try {
+                    Database database = new Database();
+                    ArrayList<ProductGroup> groups = database.getAllGroups();
+                    returnGroups(httpExchange, groups);
+                    return;
+                }catch (Exception ignored){
+                }
+                returnError(httpExchange, 404);
+            }
+
+        }
+
+        private void returnId(HttpExchange httpExchange, long id)  throws  IOException {
+            OutputStream outputStream = httpExchange.getResponseBody();
+
+            // encode HTML content
+            String htmlResponse = String.valueOf(id);
+
+            // this line is a must
+            httpExchange.sendResponseHeaders(201, htmlResponse.length());
+
+            outputStream.write(htmlResponse.getBytes());
+            outputStream.flush();
+            outputStream.close();
+        }
+        private void returnGroups(HttpExchange httpExchange, ArrayList<ProductGroup> groups) throws IOException {
+            OutputStream outputStream = httpExchange.getResponseBody();
+            ObjectMapper mapper = new ObjectMapper();
+            String htmlResponse = mapper.writeValueAsString(groups);
+            httpExchange.sendResponseHeaders(200, htmlResponse.length());
+            outputStream.write(htmlResponse.getBytes());
+            outputStream.flush();
+            outputStream.close();
+        }
+    }
 }

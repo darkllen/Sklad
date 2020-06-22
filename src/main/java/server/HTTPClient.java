@@ -2,6 +2,7 @@ package server;
 
 import com.squareup.okhttp.*;
 import model.Product;
+import model.ProductGroup;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -220,5 +221,81 @@ public class HTTPClient {
         }
         response.body().close();
         return null;
+    }
+
+    public ArrayList<ProductGroup> getAllGroups() throws IOException {
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .header("token", token)
+                .url("http://localhost:8001/api/group")
+                .get()
+                .build();
+        Response response = client.newCall(request).execute();
+        if (response.code()==200){
+            JSONArray objects = new JSONArray(response.body().string());
+            ArrayList<ProductGroup> products = new ArrayList<>();
+
+            for (int i = 0 ; i< objects.length(); ++i){
+                JSONObject object = objects.getJSONObject(i);
+                ProductGroup product = new ProductGroup(object.getInt("id"),
+                        object.getString("name"),
+                        object.getString("description"));
+                products.add(product);
+            }
+            response.body().close();
+            return products;
+        }
+        response.body().close();
+        return null;
+    }
+
+    public int insertGroup(String name, String description) throws IOException {
+        OkHttpClient client = new OkHttpClient();
+
+        JSONObject jsonObject = new JSONObject()
+                .put("name", name)
+                .put("description", description);
+
+        MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+        RequestBody body = RequestBody.create(JSON, jsonObject.toString());
+
+        Request request = new Request.Builder()
+                .header("token", token)
+                .url("http://localhost:8001/api/group")
+                .put(body)
+                .build();
+        Response response = client.newCall(request).execute();
+        if (response.code()==201){
+            int id = Integer.parseInt(response.body().string());
+            response.body().close();
+            return id;
+        }
+        response.body().close();
+        return -1;
+    }
+
+    public boolean updateGroup(ProductGroup product) throws IOException {
+        OkHttpClient client = new OkHttpClient();
+
+        JSONObject jsonObject = new JSONObject()
+                .put("name", product.getName())
+                .put("id", product.getId())
+                .put("description", product.getDescription());
+
+        MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+        RequestBody body = RequestBody.create(JSON, jsonObject.toString());
+
+        Request request = new Request.Builder()
+                .header("token", token)
+                .url("http://localhost:8001/api/group")
+                .post(body)
+                .build();
+        Response response = client.newCall(request).execute();
+        if (response.code()==204){
+            response.body().close();
+            return true;
+        }
+        response.body().close();
+        return false;
     }
 }

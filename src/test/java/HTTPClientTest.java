@@ -1,6 +1,7 @@
 import db.Database;
 import io.jsonwebtoken.lang.Assert;
 import model.Product;
+import model.ProductGroup;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -201,5 +202,46 @@ class HTTPClientTest {
         client.login(login,password);
         Product product = new Product(3000, "a", new ArrayList<>(), 100,100, "q", "w");
         assertFalse(client.decrementProductNum(product.getId(), 3));
+    }
+
+    @Test
+    void getAllGroups() throws IOException, SQLException, AuthenticationException, NoSuchAlgorithmException {
+        HTTPClient client = new HTTPClient();
+        client.login(login,password);
+        Database database = new Database();
+        ArrayList<ProductGroup> productsFromDb = database.getAllGroups();
+        ArrayList<ProductGroup> products= client.getAllGroups();
+        assertIterableEquals(productsFromDb, products);
+    }
+
+    @Test
+    void insertGroup() {
+    }
+
+    @Test
+    void updateGroup() throws IOException, AuthenticationException, NoSuchAlgorithmException, SQLException {
+        HTTPClient client = new HTTPClient();
+        client.login(login,password);
+        Database database = new Database();
+        ProductGroup product = database.getAllGroups().get(0);
+        System.out.println(product);
+        product.setDescription("sd");
+        assertTrue(client.updateGroup(product));
+    }
+    @Test
+    void updateGroupWrongInput() throws IOException, AuthenticationException, NoSuchAlgorithmException, SQLException {
+        HTTPClient client = new HTTPClient();
+        client.login(login,password);
+        Database database = new Database();
+        ProductGroup product = database.getAllGroups().get(0);
+        product.setName("");
+        assertFalse(client.updateGroup(product));
+    }
+    @Test
+    void updateGroupWrongId() throws IOException, AuthenticationException, NoSuchAlgorithmException, SQLException {
+        HTTPClient client = new HTTPClient();
+        client.login(login,password);
+        ProductGroup product = new ProductGroup(3000, "a", "w");
+        assertFalse(client.updateGroup(product));
     }
 }

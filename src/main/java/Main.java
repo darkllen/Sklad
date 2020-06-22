@@ -1,12 +1,17 @@
+import server.HTTPServer;
+
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
+import java.io.IOException;
 import java.nio.charset.Charset;
 import java.security.GeneralSecurityException;
 
 public class Main {
 
-    public static void main(String[] args) throws GeneralSecurityException {
+    public static void main(String[] args) throws GeneralSecurityException, IOException {
+        HTTPServer server = new HTTPServer();
+
         System.out.println(new String(encryptString("asdasdasdasdasda", "asdasd")));
     }
 
