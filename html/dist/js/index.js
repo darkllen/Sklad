@@ -282,11 +282,6 @@ $(document).ready(function(){
         var producer = document.getElementById('input_product_producer').value;
         var groups = document.getElementById('input_product_groups').value;
 
-        document.getElementById('input_product_name').value='';
-        document.getElementById('input_product_description').value='';
-        document.getElementById('input_product_price').value='';
-        document.getElementById('input_product_producer').value='';
-        document.getElementById('input_product_groups').value='';
 
         createProduct(name, description, "0", price, producer, groups);
 
@@ -297,9 +292,7 @@ $(document).ready(function(){
 
         var name = document.getElementById('input_group_name').value;
         var description = document.getElementById('input_group_description').value;
-        
-        document.getElementById('input_group_name').value='';
-        document.getElementById('input_group_description').value='';
+      
 
         createGroup(name, description);
 
@@ -318,11 +311,6 @@ $(document).ready(function(){
         var producer = document.getElementById('search_product_producer').value;
         var groups = document.getElementById('search_product_groups').value;
 
-        // document.getElementById('input_product_name').value='';
-        // document.getElementById('input_product_description').value='';
-        // document.getElementById('input_product_price').value='';
-        // document.getElementById('input_product_producer').value='';
-        // document.getElementById('input_product_groups').value='';
 
         searchProduct(name, description, quantityMore, quantityLess, priceMore, priceLess, producer, groups);
 
@@ -335,12 +323,31 @@ $(document).ready(function(){
         var name = document.getElementById('search_group_name').value;
         var description = document.getElementById('search_group_description').value;
         
-        // document.getElementById('input_group_name').value='';
-        // document.getElementById('input_group_description').value='';
-
         searchGroup(name, description);
 
     });
+
+    $(document).on("click", "#search_product_button_clear", function(e){
+
+        document.getElementById('search_product_name').value='';
+        document.getElementById('search_product_description').value='';
+        document.getElementById('search_product_quantity_more').value='';
+        document.getElementById('search_product_quantity_less').value='';
+        document.getElementById('search_product_price_more').value='';
+        document.getElementById('search_product_price_less').value='';
+        document.getElementById('search_product_producer').value='';
+        document.getElementById('search_product_groups').value='';
+
+    });
+
+     $(document).on("click", "#search_group_button_clear", function(e){
+
+        
+        document.getElementById('search_group_name').value='';
+        document.getElementById('search_group_description').value='';
+
+    });
+
 
 
 
@@ -395,10 +402,10 @@ $(document).ready(function(){
 
                 
                 },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    // alert("ERR   a"+myToken);
-
-                }
+                error: function(xhr, status, error){
+                     var errorMessage = xhr.status + ': ' + xhr.statusText
+                     alert('Error - ' + errorMessage);
+                 }
 
           
         });
@@ -452,10 +459,10 @@ $(document).ready(function(){
 
                 
                 },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    // alert("ERR   a"+myToken);
-
-                }
+                error: function(xhr, status, error){
+                     var errorMessage = xhr.status + ': ' + xhr.statusText
+                     alert('Error - ' + errorMessage);
+                 }
           
         });
       }
@@ -536,16 +543,20 @@ $(document).ready(function(){
 
 
 
+                        document.getElementById('input_product_name').value='';
+                        document.getElementById('input_product_description').value='';
+                        document.getElementById('input_product_price').value='';
+                        document.getElementById('input_product_producer').value='';
+                        document.getElementById('input_product_groups').value='';
+
+
 
                               
                 },
-               error: function (jqXHR, textStatus, errorThrown) {
-                    // alert("ERR   a"+myToken);
-                    alert(jqXHR);
-                    alert(textStatus);
-                    alert(errorThrown);
-
-                }
+               error: function(xhr, status, error){
+                     var errorMessage = xhr.status + ': ' + xhr.statusText
+                     alert('Error - ' + errorMessage);
+                 }
 
         });
 
@@ -582,17 +593,18 @@ $(document).ready(function(){
                       d.innerHTML = text;
 
 
+                      document.getElementById('input_group_name').value='';
+                      document.getElementById('input_group_description').value='';
+
+
 
 
                               
                 },
-               error: function (jqXHR, textStatus, errorThrown) {
-                    // alert("ERR   a"+myToken);
-                    alert(jqXHR);
-                    alert(textStatus);
-                    alert(errorThrown);
-
-                }
+                 error: function(xhr, status, error){
+                     var errorMessage = xhr.status + ': ' + xhr.statusText
+                     alert('Error - ' + errorMessage);
+                 }
 
         });
 
@@ -600,13 +612,18 @@ $(document).ready(function(){
 
 
       function searchProduct(name, description, quantityMore, quantityLess, priceMore, priceLess, producer, groups){
+        var groupsArr = groups.split(', ');
 
+        var send_data = {'name':name, 'description':description, 'numLess':quantityLess, 'numMore':quantityMore, 'priceLess': priceLess,'priceMore':priceMore, 'producer':producer, 'groups':groupsArr};
+        console.log(send_data);
          $.ajax({
           //todo url and data
-          url: 'http://localhost:8001/api/good',
+          url: 'http://localhost:8001/api/search/good',
 
-          type: 'GET',
+          type: 'POST',
           headers: {"token": localStorage["tokenItem"] },
+          data: JSON.stringify(send_data),
+          dataType:'text',
           success: function (json) {
                       
                       var d = document.getElementById('Products'); 
@@ -655,11 +672,10 @@ $(document).ready(function(){
 
                 
                 },
-                error: function (jqXHR, textStatus, errorThrown) {
-
-                    // alert("ERR   a"+myToken);
-
-                }
+                error: function(xhr, status, error){
+                     var errorMessage = xhr.status + ': ' + xhr.statusText
+                     alert('Error - ' + errorMessage);
+                 }
 
           
         });
@@ -671,12 +687,13 @@ $(document).ready(function(){
 
         var send_data = {'name':name, 'description':description};
 
+
         $.ajax({
 
           //todo url and data
-          url: 'http://localhost:8001/api/group' ,
+          url: 'http://localhost:8001/api/search/group' ,
 
-          type: 'PUT',
+          type: 'POST',
           headers: {"token": localStorage["tokenItem"] },
 
           data: JSON.stringify(send_data),
@@ -728,13 +745,10 @@ $(document).ready(function(){
 
                               
                 },
-               error: function (jqXHR, textStatus, errorThrown) {
-                    // alert("ERR   a"+myToken);
-                    alert(jqXHR);
-                    alert(textStatus);
-                    alert(errorThrown);
-
-                }
+               error: function(xhr, status, error){
+                     var errorMessage = xhr.status + ': ' + xhr.statusText
+                     alert('Error - ' + errorMessage);
+                 }
 
         });
 
@@ -773,11 +787,10 @@ $(document).ready(function(){
 
                               
                 },
-                error: function (json) {
-                    alert(json.errors);
-
-
-                }
+                error: function(xhr, status, error){
+                     var errorMessage = xhr.status + ': ' + xhr.statusText
+                     alert('Error - ' + errorMessage);
+                 }
 
         });
 
@@ -809,11 +822,10 @@ $(document).ready(function(){
 
                               
                 },
-                error: function (json) {
-                    alert(json.errors);
-
-
-                }
+                error: function(xhr, status, error){
+                     var errorMessage = xhr.status + ': ' + xhr.statusText
+                     alert('Error - ' + errorMessage);
+                 }
 
         });
 
@@ -857,12 +869,10 @@ $(document).ready(function(){
                     current_id = 0;
                               
                 },
-                error: function (json) {
-                  console.log("a");
-                    alert(json.errors);
-
-
-                }
+                error: function(xhr, status, error){
+                     var errorMessage = xhr.status + ': ' + xhr.statusText
+                     alert('Error - ' + errorMessage);
+                 }
 
           
         });
@@ -905,11 +915,10 @@ $(document).ready(function(){
                     current_id = 0;
                               
                 },
-                error: function (json) {
-                    alert(json.errors);
-
-
-                }
+                error: function(xhr, status, error){
+                     var errorMessage = xhr.status + ': ' + xhr.statusText
+                     alert('Error - ' + errorMessage);
+                 }
 
           
         });
@@ -957,11 +966,10 @@ $(document).ready(function(){
                     current_id = 0;
                               
                 },
-                error: function (json) {
-                    alert(json.errors);
-
-
-                }
+                error: function(xhr, status, error){
+                     var errorMessage = xhr.status + ': ' + xhr.statusText
+                     alert('Error - ' + errorMessage);
+                 }
 
           
         });
@@ -997,11 +1005,10 @@ $(document).ready(function(){
                     getAllProducts();
                     current_id = 0;         
                 },
-                error: function (json) {
-                    alert(json.errors);
-
-
-                }
+                error: function(xhr, status, error){
+                     var errorMessage = xhr.status + ': ' + xhr.statusText
+                     alert('Error - ' + errorMessage);
+                 }
 
           
         });

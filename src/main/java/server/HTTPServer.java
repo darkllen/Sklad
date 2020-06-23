@@ -52,6 +52,8 @@ public class HTTPServer {
         server.createContext("/api/good/decrement", new DecrementHandler());
         server.createContext("/api/group", new GroupHandler());
         server.createContext("/api/group/", new SpecificGroupHandler());
+        server.createContext("/api/search/group", new SearchGroup());
+        server.createContext("/api/search/good", new SearchProduct());
         //    server.createContext("/api/group", new GroupHandler());
         //    server.createContext("/api/group/", new GroupHandler());
 
@@ -197,6 +199,10 @@ public class HTTPServer {
                             groups,
                             description,
                             producer);
+                    if (id ==-1){
+                        returnError(httpExchange, 409);
+                        return;
+                    }
                     returnId(httpExchange, id);
                 } catch (SQLException ignored) { ;
                 }
@@ -582,5 +588,147 @@ public class HTTPServer {
         }
 
 
+    }
+
+    private class SearchGroup implements HttpHandler {
+        public void handle(HttpExchange httpExchange) throws IOException {
+            httpExchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
+            if (httpExchange.getRequestMethod().equalsIgnoreCase("OPTIONS")) {
+                httpExchange.getResponseHeaders().add("Access-Control-Allow-Methods", "GET, OPTIONS, PUT, POST, DELETE");
+                httpExchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type,token");
+                httpExchange.sendResponseHeaders(204, -1);
+                return;
+            }
+            Claims claims;
+            try {
+                claims = Jwts.parser()
+                        .setSigningKey(DatatypeConverter.parseBase64Binary(key))
+                        .parseClaimsJws(httpExchange.getRequestHeaders().getOrDefault("token", new ArrayList<>()).get(0)).getBody();
+            } catch (IllegalArgumentException e) {
+                returnError(httpExchange, 403);
+                return;
+            }
+            if (!authorised.contains(claims.getSubject())) {
+                returnError(httpExchange, 403);
+                return;
+            }
+
+            if("POST".equals(httpExchange.getRequestMethod())){
+                JSONObject object= new JSONObject(new BufferedReader(new InputStreamReader(httpExchange.getRequestBody(), StandardCharsets.UTF_8)).lines().collect(Collectors.joining("\n")));
+                try {
+                    Database database = new Database();
+                    String name = object.getString("name");
+                    String description = object.getString("description");
+
+                    ArrayList<ProductGroup> productGroups = database.getAllGroups();
+                    if (name.length()!=0)
+                    productGroups = productGroups.stream().filter(x->x.getName().contains(name)).collect(Collectors.toCollection(ArrayList::new));
+                    if (description.length()!=0)
+                        productGroups = productGroups.stream().filter(x->x.getDescription().contains(description)).collect(Collectors.toCollection(ArrayList::new));
+
+                    returnGroups(httpExchange, productGroups);
+                } catch (SQLException ignored) { ;
+                }
+                returnError(httpExchange,404);
+            }
+
+        }
+
+        private void returnGroups(HttpExchange httpExchange, ArrayList<ProductGroup> groups) throws IOException {
+            OutputStream outputStream = httpExchange.getResponseBody();
+            ObjectMapper mapper = new ObjectMapper();
+            String htmlResponse = mapper.writeValueAsString(groups);
+            httpExchange.sendResponseHeaders(200, htmlResponse.length());
+            outputStream.write(htmlResponse.getBytes());
+            outputStream.flush();
+            outputStream.close();
+        }
+    }
+
+
+
+    private class SearchProduct implements HttpHandler {
+        public void handle(HttpExchange httpExchange) throws IOException {
+            httpExchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
+            if (httpExchange.getRequestMethod().equalsIgnoreCase("OPTIONS")) {
+                httpExchange.getResponseHeaders().add("Access-Control-Allow-Methods", "GET, OPTIONS, PUT, POST, DELETE");
+                httpExchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type,token");
+                httpExchange.sendResponseHeaders(204, -1);
+                return;
+            }
+            Claims claims;
+            try {
+                claims = Jwts.parser()
+                        .setSigningKey(DatatypeConverter.parseBase64Binary(key))
+                        .parseClaimsJws(httpExchange.getRequestHeaders().getOrDefault("token", new ArrayList<>()).get(0)).getBody();
+            } catch (IllegalArgumentException e) {
+                returnError(httpExchange, 403);
+                return;
+            }
+            if (!authorised.contains(claims.getSubject())) {
+                returnError(httpExchange, 403);
+                return;
+            }
+
+            if("POST".equals(httpExchange.getRequestMethod())){
+                JSONObject object= new JSONObject(new BufferedReader(new InputStreamReader(httpExchange.getRequestBody(), StandardCharsets.UTF_8)).lines().collect(Collectors.joining("\n")));
+                try {
+                    Database database = new Database();
+                    ArrayList<Product> products = database.getAllProducts();
+
+
+
+                    String name = object.getString("name");
+                    if (name.length()!=0)
+                        products = products.stream().filter(x->x.getName().contains(name)).collect(Collectors.toCollection(ArrayList::new));
+                    String description = object.getString("description");
+                    if (description.length()!=0)
+                        products = products.stream().filter(x->x.getDescription().contains(description)).collect(Collectors.toCollection(ArrayList::new));
+                    String producer = object.getString("producer");
+                    if (producer.length()!=0)
+                        products = products.stream().filter(x->x.getProducer().contains(producer)).collect(Collectors.toCollection(ArrayList::new));
+
+                    try {
+                        int numMore = object.getInt("numMore");
+                        products = products.stream().filter(x->x.getNum()>= numMore).collect(Collectors.toCollection(ArrayList::new));
+                    } catch (Exception ignored){};
+                    try {
+                        int numLess = object.getInt("numLess");
+                        products = products.stream().filter(x->x.getNum()<= numLess).collect(Collectors.toCollection(ArrayList::new));
+                    } catch (Exception ignored){};
+                    try {
+                        int priceMore = object.getInt("priceMore");
+                        products = products.stream().filter(x->x.getPrice()>= priceMore).collect(Collectors.toCollection(ArrayList::new));
+                    } catch (Exception ignored){};
+                    try {
+                        int priceLess = object.getInt("priceLess");
+                        products = products.stream().filter(x->x.getPrice()<= priceLess).collect(Collectors.toCollection(ArrayList::new));
+                    } catch (Exception ignored){};
+
+
+                    ArrayList<String> groups = object.getJSONArray("groups").toList().stream().map(x->(String)x).collect(Collectors.toCollection(ArrayList::new));
+                    if (groups.get(0).length()!=0)
+                        for (String s : groups) {
+                            products = products.stream().filter(product -> product.getGroups().contains(s)).collect(Collectors.toCollection(ArrayList::new));
+                        }
+
+
+                    returnProducts(httpExchange, products);
+                } catch (SQLException ignored) { ;
+                }
+                returnError(httpExchange,404);
+            }
+
+        }
+
+        private void returnProducts(HttpExchange httpExchange, ArrayList<Product> product) throws IOException {
+            OutputStream outputStream = httpExchange.getResponseBody();
+            ObjectMapper mapper = new ObjectMapper();
+            String htmlResponse = mapper.writeValueAsString(product);
+            httpExchange.sendResponseHeaders(200, htmlResponse.length());
+            outputStream.write(htmlResponse.getBytes());
+            outputStream.flush();
+            outputStream.close();
+        }
     }
 }

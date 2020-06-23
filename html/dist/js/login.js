@@ -39,9 +39,10 @@ $(document).on('click','.login_button',function(e){
           // window.location.replace(link);
 
         },
-        error: function (json) {
-              alert(json.errors);
-        },
+        error: function(xhr, status, error){
+                     var errorMessage = xhr.status + ': ' + xhr.statusText
+                     alert('Error - ' + errorMessage);
+                 }
 
       });
 

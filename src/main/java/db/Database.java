@@ -52,6 +52,10 @@ public class Database {
     }
     public long createProduct(String name, int num, int price, ArrayList<String> groups, String description, String producer) {
         try{
+            ArrayList<String> pr = getAllGroups().stream().map(ProductGroup::getName).collect(Collectors.toCollection(ArrayList::new));
+            for (int i = 0; i < groups.size(); i++) {
+                if (!pr.contains(groups.get(i)))return -1;
+            }
             PreparedStatement statement = connection.prepareStatement("INSERT INTO product(product_name, num, price, description, producer) VALUES (?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, name);
             statement.setInt(2, num);
