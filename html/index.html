@@ -380,10 +380,16 @@
 	    if(tabName == "Search")
 	        document.getElementById("defaultSearchOpen").click();
 
-    	if(tabName != "Products")
+    	if(tabName != "Products"){
     		document.getElementById("total_price").style.visibility = "hidden";
-    	else
+    		document.getElementById("total_quantity").style.visibility = "hidden";
+
+    	}
+    	else{
     		document.getElementById("total_price").style.visibility = "visible";
+    		document.getElementById("total_quantity").style.visibility = "visible";
+
+    	}
 
 
     }
