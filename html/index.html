@@ -20,25 +20,33 @@
 <body id="body" class>
 
 		<!-- Tab links -->
-		<div class="tab">
+		<div class="tab tab_fixed">
   			<button class="tablinks" onclick="openTab(event, 'Products')" id="defaultOpen">Products</button>
 
   			<button class="tablinks" onclick="openTab(event, 'Groups')">Groups</button>
 
   			<button class="tablinks" onclick="openTab(event, 'Create')">Create</button>
 
+  			<button class="tablinks" onclick="openTab(event, 'Search')">Search</button>
+
 		</div>
+
+<div class="total_price" id="total_price">
+		</div>
+
+
 
 		<!-- Tab content -->
 		<!-- Products -->
 		<div class="tabcontent" id="Products">
-  			<table>
+  			<table  style="margin-top: 30px;">
 					  <tr>
 
 					    <th>Name</th>
 					    <th>Description</th>
 					    <th>Price</th>
 					    <th>Quantity</th>
+					    <th>Producer</th>
 					    <th>Group</th>
 					    <th>Edit</th>
 					    <th>Delete</th>
@@ -60,6 +68,8 @@
 	  								
 	  							</div>
 							</td>
+						    <td>Producer</td>
+
 						    <td>Group1, group2, group3</td>
 						    <td><button class="table_button" id="edit_product_button">Edit</button></td>
 						    <td><button clsass="table_button" id="delete_product_button">Delete</button></td>
@@ -74,7 +84,7 @@
 		<!-- Groups -->
 		<div class="tabcontent" id="Groups">
 
-				<table>
+				<table  style="margin-top: 0px;">
 					  <tr>
 					    <th>Name</th>
 					    <th>Description</th>
@@ -100,7 +110,9 @@
 
 		<div id="Create" class="tabcontent">
 	  			<!-- Tab links -->
-			<div class="tab">
+			<!-- <div class="tab tab_fixed"  style="margin-top: 50px;"> -->
+
+			<div class="tab tab_fixed"  style="margin-top: -37px;">
 	  			<button class="subtablinks" id="defaultSubOpen" onclick="openSubTab(event, 'CreateProduct')" >Create product</button>
 
 	  			<button class="subtablinks" onclick="openSubTab(event, 'CreateGroup')">Create group</button>
@@ -109,14 +121,18 @@
 		</div>
 
 
-		<div id="CreateProduct" class="tabcontent subtabcontent">
+
+		<div id="CreateProduct" class="tabcontent subtabcontent"  style="margin-top: 40px;">
 		  	<input class="inputs" id="input_product_name" type="text" placeholder="Name"><br>
 
 		  	<textarea class="inputs" id="input_product_description" type="text" placeholder="Description"></textarea><br>
 
 		  	<input class="inputs" id="input_product_price" type="number" placeholder="Price"><br>
 
-		  	<input class="inputs" id="input_product_quantity" type="number" placeholder="Quantity"><br>
+		  	<input class="inputs" id="input_product_producer" type="text" placeholder="Producer"><br>
+
+
+		  	<!-- <input class="inputs" id="input_product_quantity" type="number" placeholder="Quantity"><br> -->
 
 		  	<textarea class="inputs" id="input_product_groups" type="text" placeholder="Groups"></textarea><br>
 
@@ -124,12 +140,59 @@
 		  	<button class="button" id="create_product_button">Create</button>
 		</div>
 
-		<div id="CreateGroup" class="tabcontent subtabcontent">
-		  	<input class="inputs" id="input_product_name" type="text" placeholder="Name"><br>
+		<div id="CreateGroup" class="tabcontent subtabcontent"  style="margin-top: 40px;">
+		  	<input class="inputs" id="input_group_name" type="text" placeholder="Name"><br>
 
-		  	<textarea class="inputs" id="input_product_description" type="text" placeholder="Description"></textarea><br>
+		  	<textarea class="inputs" id="input_group_description" type="text" placeholder="Description"></textarea><br>
 
 		  	<button class="button" id="create_group_button">Create</button>
+		</div>
+
+
+		<!-- Search -->
+		<div id="Search" class="tabcontent">
+	  			<!-- Tab links -->
+			<!-- <div class="tab tab_fixed"  style="margin-top: 50px;"> -->
+
+			<div class="tab tab_fixed"  style="margin-top: -37px;">
+	  			<button class="searchtablinks" id="defaultSearchOpen" onclick="openSearchTab(event, 'SearchProduct')" >Search product</button>
+
+	  			<button class="searchtablinks" onclick="openSearchTab(event, 'SearchGroup')">Search group</button>
+
+			</div>
+		</div>
+
+
+
+		<div id="SearchProduct" class="tabcontent searchtabcontent"  style="margin-top: 40px;">
+		  	<input class="inputs_wide" id="input_product_name" type="text" placeholder="Name"><br>
+
+		  	<textarea class="inputs_wide" id="input_product_description" type="text" placeholder="Description"></textarea><br>
+
+		  	<input class="inputs" id="input_product_price_more" type="number" placeholder="Price"
+		  	><input class="inputs" id="input_product_price_less" type="number" placeholder="Price"><br>
+
+		  	<input class="inputs" id="input_product_quantity_more" type="number" placeholder="Quantity"
+		  	><input class="inputs" id="input_product_quantity_less" type="number" placeholder="Quantity"><br>
+
+
+
+		  	<input class="inputs_wide" id="input_product_producer" type="text" placeholder="Producer"><br>
+
+
+
+		  	<textarea class="inputs" id="input_product_groups" type="text" placeholder="Groups"></textarea><br>
+
+
+		  	<button class="button" id="create_product_button">Create</button>
+		</div>
+
+		<div id="SearchGroup" class="tabcontent searchtabcontent"  style="margin-top: 40px;">
+		  	<input class="inputs" id="search_group_name" type="text" placeholder="Name contains"><br>
+
+		  	<textarea class="inputs" id="search_group_description" type="text" placeholder="Description contains"></textarea><br>
+
+		  	<button class="button" id="search_group_button">Search</button>
 		</div>
 
 
@@ -153,12 +216,15 @@
 
 			  	<input class="inputs_modal inputs" id="edit_product_price" type="number" placeholder="Price"><br>
 
+		      	<input class="inputs_modal inputs" id="edit_product_producer" type="text" placeholder="Producer"><br>
+
+
 			  	<!-- <input class="inputs" id="input_product_quantity" type="number" placeholder="Quantity"><br> -->
 
 			  	<textarea class="inputs_modal inputs" id="edit_product_groups" style="resize: none;" type="text" placeholder="Groups"></textarea><br>
 
 
-			  	<button class="button" id="edit_product_button">Edit</button>
+			  	<button class="button" id="edit_product_button_submit">Edit</button>
 
 
 		    </div>
@@ -180,7 +246,7 @@
 
 			  	<textarea class="inputs_modal inputs" id="edit_group_description" style="resize: none;" type="text" placeholder="Description"></textarea><br>
 
-			  	<button class="button" id="edit_group_button">Edit</button>
+			  	<button class="button" id="edit_group_button_submit">Edit</button>
 
 
 		    </div>
@@ -265,7 +331,7 @@
 				</div>
 
 				<div id="WriteOffGood" class="tabcontent quantitytabcontent">
-				  	<input class="inputs" id="input_product_quantity" type="number" placeholder="Quantity"><br>
+				  	<input class="inputs" id="input_product_quantity_write_off" type="number" placeholder="Quantity"><br>
 
 				  	<button class="button" id="write_off_good_button">Submit</button>
 				</div>	     
@@ -306,6 +372,15 @@
       if(tabName == "Create")
         document.getElementById("defaultSubOpen").click();
 
+	    if(tabName == "Search")
+	        document.getElementById("defaultSearchOpen").click();
+
+    	if(tabName != "Products")
+    		document.getElementById("total_price").style.visibility = "hidden";
+    	else
+    		document.getElementById("total_price").style.visibility = "visible";
+
+
     }
 
 
@@ -316,6 +391,20 @@
         tabcontent[i].style.display = "none";
       }
       tablinks = document.getElementsByClassName("subtablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+
+    function openSearchTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("searchtabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("searchtablinks");
       for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
       }

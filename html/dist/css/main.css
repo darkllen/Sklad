@@ -13,8 +13,17 @@ body {
   overflow: hidden;
   border: 1px solid #ccc;
   background-color: #f1f1f1;
+  /*display: inline-block;*/
+  /*position: fixed;*/
+  /*width: auto;*/
 }
 
+.tab_fixed{
+   position: fixed;
+   width: 100%;
+
+   margin-top: -60px;
+}
 /* Style the buttons that are used to open the tab content */
 .tab button {
   background-color: inherit;
@@ -42,6 +51,14 @@ body {
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-top: none;
+}
+
+
+.total_price{
+  margin-top: 60px;
+  margin-left: 85%;
+  display: block;
+
 }
 
 
@@ -73,10 +90,17 @@ tr:nth-child(even) {
 	/*height: 30px;*/
 }
 
+.inputs_wide{
+  margin-left: 5%;
+  margin-top: 2%;
+  width: 55%;
+  /*height: 30px;*/
+}
+
 .inputs_modal{
 	margin-left: 5%;
 	margin-top: 2%;
-	width: 50%;
+	width: 55%;
 	/*height: 30px;*/
 }
 
@@ -132,8 +156,8 @@ tr:nth-child(even) {
   position: fixed;
   /*bottom: 0;*/
   background-color: #fefefe;
-  width: 50%;
-  height: 50%;
+  width: 60%;
+  height: 60%;
   position: absolute;
   left: 25%;
   top: 25%;

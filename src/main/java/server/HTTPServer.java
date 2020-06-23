@@ -155,7 +155,9 @@ public class HTTPServer {
                 return;
             }
 
+            System.out.println(httpExchange.getRequestHeaders().values());
             System.out.println(httpExchange.getRequestHeaders().keySet());
+
             Claims claims;
             try{
                 claims = Jwts.parser()
@@ -169,8 +171,12 @@ public class HTTPServer {
                 returnError(httpExchange, 403);
                 return;
             }
+
+            System.out.println("s");
             if("PUT".equals(httpExchange.getRequestMethod())){
+                //System.out.println(new BufferedReader(new InputStreamReader(httpExchange.getRequestBody(), StandardCharsets.UTF_8)).lines().collect(Collectors.joining("\n")));
                 JSONObject object= new JSONObject(new BufferedReader(new InputStreamReader(httpExchange.getRequestBody(), StandardCharsets.UTF_8)).lines().collect(Collectors.joining("\n")));
+                System.out.println(object.toString());
                 try {
                     Database database = new Database();
                     ArrayList<String> groups = object.getJSONArray("groups").toList().stream().map(x->(String)x).collect(Collectors.toCollection(ArrayList::new));
@@ -353,11 +359,13 @@ public class HTTPServer {
                     Database database = new Database();
                     int num = object.getInt("num");
                     int id = object.getInt("id");
-
+                    System.out.println(num);
                     if (num<=0){
+                        System.out.println(num);
                         returnError(httpExchange, 409);
                         return;
                     }
+                    System.out.println(num);
                     int res = database.incrementProductQuantity(id, num);
                     if (res!=1) returnError(httpExchange,404);
                     httpExchange.sendResponseHeaders(204, -1);
