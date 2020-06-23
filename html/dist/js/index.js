@@ -63,7 +63,7 @@ $(document).ready(function(){
     }
 
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
+    modalEditProduct.onclick = function(event) {
       if (event.target == modalEditProduct) {
         modalEditProduct.style.display = "none";
         current_id = 0;
@@ -111,7 +111,7 @@ $(document).ready(function(){
     }
 
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
+    modalEditGroup.onclick = function(event) {
       if (event.target == modalEditGroup) {
         modalEditGroup.style.display = "none";
         current_id = 0;
@@ -160,7 +160,7 @@ $(document).ready(function(){
     });
 
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
+    modalDeleteProduct.onclick = function(event) {
       if (event.target == modalDeleteProduct) {
         modalDeleteProduct.style.display = "none";
       }
@@ -204,7 +204,7 @@ $(document).ready(function(){
     });
 
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
+    modalDeleteGroup.onclick = function(event) {
       if (event.target == modalDeleteGroup) {
         modalDeleteGroup.style.display = "none";
       }
@@ -264,7 +264,7 @@ $(document).ready(function(){
     }
 
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
+    modalChangeQuantity.onclick = function(event) {
       if (event.target == modalChangeQuantity) {
         modalChangeQuantity.style.display = "none";
       current_id = 0;
