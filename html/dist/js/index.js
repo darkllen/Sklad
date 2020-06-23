@@ -50,7 +50,6 @@ $(document).ready(function(){
 
       updateProduct(current_id, name, description, quantity, price, producer, groups);
 
-      current_id = 0;
 
       
     });
@@ -101,7 +100,6 @@ $(document).ready(function(){
 
       updateGroup(current_id, name, description);
 
-      current_id = 0;
 
       
     });
@@ -150,7 +148,6 @@ $(document).ready(function(){
 
       deleteProduct(current_id);
 
-      current_id = 0;
       
 
 
@@ -195,7 +192,6 @@ $(document).ready(function(){
 
 
       deleteGroup(current_id);
-      current_id = 0;
 
 
     });
@@ -243,7 +239,6 @@ $(document).ready(function(){
       var num = document.getElementById("input_product_quantity_add").value;
 
       increment(current_id, num);
-      current_id = 0;
       document.getElementById("input_product_quantity_add").value='';
 
 
@@ -256,7 +251,6 @@ $(document).ready(function(){
       var num = document.getElementById("input_product_quantity_write_off").value;
 
       decrement(current_id, num);
-      current_id = 0;
       document.getElementById("input_product_quantity_write_off").value='';
 
 
@@ -775,6 +769,7 @@ $(document).ready(function(){
 
                     element.parentNode.removeChild(element);
 
+                    current_id = 0;
 
                               
                 },
@@ -810,7 +805,7 @@ $(document).ready(function(){
 
                     //todo
                     getAllProducts();
-
+                    current_id = 0;
 
                               
                 },
@@ -859,7 +854,7 @@ $(document).ready(function(){
                    
                   
                     document.getElementById("total_quantity").innerHTML = "Total quantity: "+(parseInt(document.getElementById("total_quantity").innerHTML.replace ( /[^\d.]/g, '' ))+parseInt(num));
-
+                    current_id = 0;
                               
                 },
                 error: function (json) {
@@ -907,7 +902,7 @@ $(document).ready(function(){
                     var total = element.childNodes[5].innerHTML*num;
                     document.getElementById("total_price").innerHTML = "Total price: $"+(parseInt(document.getElementById("total_price").innerHTML.replace ( /[^\d.]/g, '' ))-parseInt(total));
                     document.getElementById("total_quantity").innerHTML = "Total quantity: "+(parseInt(document.getElementById("total_quantity").innerHTML.replace ( /[^\d.]/g, '' ))-parseInt(num));
-                   
+                    current_id = 0;
                               
                 },
                 error: function (json) {
@@ -959,7 +954,7 @@ $(document).ready(function(){
                     prev_total+=price*quantity;
 
                     document.getElementById("total_price").innerHTML = "Total price: $"+prev_total;
-                   
+                    current_id = 0;
                               
                 },
                 error: function (json) {
@@ -1000,7 +995,7 @@ $(document).ready(function(){
                     elements.childNodes[3].innerHTML = description;
 
                     getAllProducts();
-                              
+                    current_id = 0;         
                 },
                 error: function (json) {
                     alert(json.errors);
