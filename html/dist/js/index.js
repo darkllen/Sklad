@@ -653,6 +653,7 @@ $(document).ready(function(){
                 
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
+                  
                     // alert("ERR   a"+myToken);
 
                 }
