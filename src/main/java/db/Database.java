@@ -266,6 +266,11 @@ public class Database {
     }
     public int updateProduct(Product product){
         try{
+            ArrayList<String> pr = getAllGroups().stream().map(ProductGroup::getName).collect(Collectors.toCollection(ArrayList::new));
+            for (int i = 0; i < product.getGroups().size(); i++) {
+                if (!pr.contains(product.getGroups().get(i)))return -1;
+            }
+
             PreparedStatement statement = connection.prepareStatement("UPDATE product SET product_name = ?, num = ?, price = ?, description =?, producer = ? WHERE product_id = ?");
             //statement.setInt(1, 1);
             statement.setString(1, product.getName());

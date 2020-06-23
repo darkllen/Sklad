@@ -39,7 +39,6 @@ $(document).ready(function(){
     });
 
  $(document).on("click", "#edit_product_button_submit", function(e){
-      modalEditProduct.style.display = "none";
 
       var name = document.getElementById('edit_product_name').value;
       var description = document.getElementById('edit_product_description').value;
@@ -47,11 +46,12 @@ $(document).ready(function(){
       var producer = document.getElementById('edit_product_producer').value;
       var groups = document.getElementById('edit_product_groups').value;
 
+      console.log(current_id);
+
       var quantity = document.getElementById(current_id+'_product').childNodes[7].childNodes[1].innerHTML;
 
       updateProduct(current_id, name, description, quantity, price, producer, groups);
 
-      current_id = 0;
 
       
     });
@@ -96,14 +96,12 @@ $(document).ready(function(){
     });
 
  $(document).on("click", "#edit_group_button_submit", function(e){
-      modalEditGroup.style.display = "none";
 
       var name = document.getElementById('edit_group_name').value;
       var description = document.getElementById('edit_group_description').value;
 
       updateGroup(current_id, name, description);
 
-      current_id = 0;
 
       
     });
@@ -152,7 +150,6 @@ $(document).ready(function(){
 
       deleteProduct(current_id);
 
-      current_id = 0;
       
 
 
@@ -197,7 +194,6 @@ $(document).ready(function(){
 
 
       deleteGroup(current_id);
-      current_id = 0;
 
 
     });
@@ -245,7 +241,6 @@ $(document).ready(function(){
       var num = document.getElementById("input_product_quantity_add").value;
 
       increment(current_id, num);
-      current_id = 0;
       document.getElementById("input_product_quantity_add").value='';
 
 
@@ -258,7 +253,6 @@ $(document).ready(function(){
       var num = document.getElementById("input_product_quantity_write_off").value;
 
       decrement(current_id, num);
-      current_id = 0;
       document.getElementById("input_product_quantity_write_off").value='';
 
 
@@ -761,6 +755,7 @@ $(document).ready(function(){
                     document.getElementById("total_price").innerHTML = "Total: $"+(parseInt(document.getElementById("total_price").innerHTML.replace ( /[^\d.]/g, '' ))-parseInt(total));
                     element.parentNode.removeChild(element);
 
+                    current_id = 0;
 
                               
                 },
@@ -796,6 +791,8 @@ $(document).ready(function(){
 
                     //todo
                     getAllProducts();
+                     current_id = 0;
+
 
 
                               
@@ -825,6 +822,7 @@ $(document).ready(function(){
           dataType:'text',
          
           success: function () {
+             console.log("a");
                     // alert('Incremented');
                     modalChangeQuantity.style.display = "none";
 
@@ -842,6 +840,7 @@ $(document).ready(function(){
 
                     var total = element.childNodes[5].innerHTML*num;
                     document.getElementById("total_price").innerHTML = "Total: $"+(parseInt(document.getElementById("total_price").innerHTML.replace ( /[^\d.]/g, '' ))+parseInt(total));
+                    current_id = 0;
                    
                               
                 },
@@ -889,6 +888,7 @@ $(document).ready(function(){
 
                     var total = element.childNodes[5].innerHTML*num;
                     document.getElementById("total_price").innerHTML = "Total: $"+(parseInt(document.getElementById("total_price").innerHTML.replace ( /[^\d.]/g, '' ))-parseInt(total));
+                    current_id = 0;
                    
                               
                 },
@@ -942,7 +942,9 @@ $(document).ready(function(){
 
                     document.getElementById("total_price").innerHTML = "Total: $"+prev_total;
                    
-                              
+                            
+                    current_id = 0;
+
                 },
                 error: function (json) {
                     alert(json.errors);
@@ -982,6 +984,9 @@ $(document).ready(function(){
                     elements.childNodes[3].innerHTML = description;
 
                     getAllProducts();
+
+                    current_id = 0;
+
                               
                 },
                 error: function (json) {

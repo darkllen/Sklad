@@ -157,6 +157,8 @@ class DatabaseTest {
         s.add("d");
         s.add("b");
         p.setGroups(s);
+        System.out.println(database.getAllProducts());
+        System.out.println(database.getAllGroups());
         database.updateProduct(p);
         System.out.println(database.getProductByName("d"));
     }

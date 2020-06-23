@@ -138,6 +138,7 @@ public class HTTPClient {
             response.body().close();
             return true;
         }
+        System.out.println(response.code());
         response.body().close();
         return false;
     }
@@ -163,6 +164,7 @@ public class HTTPClient {
             response.body().close();
             return true;
         }
+        System.out.println(response.code());
         response.body().close();
         return false;
     }

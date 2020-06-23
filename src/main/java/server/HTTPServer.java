@@ -62,7 +62,7 @@ public class HTTPServer {
     }
 
     private void returnError(HttpExchange httpExchange, int code) throws IOException {
-        httpExchange.sendResponseHeaders(code, 0);
+        httpExchange.sendResponseHeaders(code, -1);
 
     }
 
@@ -362,7 +362,7 @@ public class HTTPServer {
                     System.out.println(num);
                     if (num<=0){
                         System.out.println(num);
-                        returnError(httpExchange, 409);
+                        httpExchange.sendResponseHeaders(409,-1);
                         return;
                     }
                     System.out.println(num);
