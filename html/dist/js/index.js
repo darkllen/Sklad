@@ -6,8 +6,10 @@ $(document).ready(function(){
     getAllProducts();
     getAllGroups();
 
-    var myToken = localStorage["tokenItem"] ;//localStorage.getItem("tokenItem");
+    document.getElementById("defaultOpen").click();
 
+
+    var myToken = localStorage["tokenItem"] ;//localStorage.getItem("tokenItem");
 
 
 
@@ -35,7 +37,7 @@ $(document).ready(function(){
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
-      if (event.target == modal) {
+      if (event.target == modalEditProduct) {
         modalEditProduct.style.display = "none";
       }
     }
@@ -62,7 +64,7 @@ $(document).ready(function(){
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
-      if (event.target == modal) {
+      if (event.target == modalEditGroup) {
         modalEditGroup.style.display = "none";
       }
     }
@@ -90,19 +92,19 @@ $(document).ready(function(){
       modalDeleteProduct.style.display = "none";
     }
 
-    submitProductButton.onclick = function() {
-      modalDeleteProduct.style.display = "none";
+    // submitProductButton.onclick = function() {
+    //   modalDeleteProduct.style.display = "none";
 
 
-    }
+    // }
 
-    cancelProductButton.onclick = function() {
-      modalDeleteProduct.style.display = "none";
-    }
+    // cancelProductButton.onclick = function() {
+    //   modalDeleteProduct.style.display = "none";
+    // }
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
-      if (event.target == modal) {
+      if (event.target == modalDeleteProduct) {
         modalDeleteProduct.style.display = "none";
       }
     }
@@ -140,7 +142,7 @@ $(document).ready(function(){
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
-      if (event.target == modal) {
+      if (event.target == modalDeleteGroup) {
         modalDeleteGroup.style.display = "none";
       }
     }
@@ -169,39 +171,58 @@ $(document).ready(function(){
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
-      if (event.target == modal) {
+      if (event.target == modalChangeQuantity) {
         modalChangeQuantity.style.display = "none";
       }
     }
 
-      // $(document).ready(function(){
-      //   // console.log("hi");
-      //   getAllProducts();
-      //   // getAllGroups();
-      // });
 
       function getAllProducts(){
-
-
-
-
         $.ajax({
           url: 'http://localhost:8001/api/good',
 
           type: 'GET',
-          headers: {token:"s" },
+          headers: {"token": localStorage["tokenItem"] },
           success: function (json) {
-                
+                      
                       var d = document.getElementById('Products'); 
                       
-                      d.innerHTML = '';
-                      json.forEach(function(item){
+                      var text;
+                      text = '<table><tr>';
 
-                    var product=formProduct(item);
-                    d.innerHTML+=product;
+                      text+='<th>Name</th>';
+                      text+='<th>Description</th>';
+                      text+='<th>Price</th>';
+                      text+='<th>Quantity</th>';
+                      text+='<th>Group</th>';
+                      text+='<th>Edit</th>';
+                      text+='<th>Delete</th>';
 
-                  });
+                      text+='</tr>';
 
+                      json = JSON.parse(json);
+
+                      
+                          for(var item in json){
+
+                        var product=formProduct(json[item]);
+                        text+=product;
+
+
+// todo
+
+                   // var btnDeleteProduct = document.getElementById("delete_product_button");
+
+                  //  btnDeleteProduct.onclick = function() {
+                  //    modalDeleteProduct.style.display = "block";
+                  //  }
+
+                  // });
+                }
+
+                text+='</table>';
+
+                d.innerHTML=text;
                 
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
@@ -218,31 +239,53 @@ $(document).ready(function(){
       function getAllGroups(){
 
         $.ajax({
-          url: 'http://localhost:8001/api/group/',
+          url: 'http://localhost:8001/api/group',
 
           type: 'GET',
-          token: myToken,
+          headers: {"token": localStorage["tokenItem"] },
+
 
           success: function (json) {
                 
                       var d = document.getElementById('Groups'); 
                       
                       d.innerHTML = '';
-                      json.forEach(function(item){
 
-                    var group=formGroup(item);
-                    d.innerHTML+=group;
+                      console.log(json);
 
-                  });
+
+                      var text = '<table>';
+                      text += '<tr>';
+                      text += '<th>Name</th>';
+                       text += '<th>Description</th>';
+                       text += '<th>Edit</th>';
+                       text += '<th>Delete</th>';
+                     text += '</tr>';
+
+
+
+                     json = JSON.parse(json);
+
+                      
+                          for(var item in json){
+
+                      
+
+                            var group=formGroup(json[item]);
+                            text+=group;
+
+                  }
+
+                  text+='</table>';
+
+                d.innerHTML=text;
 
                 
                 },
-                error: function (json) {
-                    alert(json.errors);
-
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert("ERR   a"+myToken);
 
                 }
-
           
         });
       }
@@ -250,6 +293,8 @@ $(document).ready(function(){
 
 
       function formProduct(item){
+
+        console.log(item);
 
         var text = '<tr id = "'+item.id+'_product">';
           text+='     <td>'+item.name+'</td>';
@@ -282,6 +327,7 @@ $(document).ready(function(){
             text+='     <td><button class="table_button" id="delete_group_button">Delete</button></td>';
             text+='   </tr>';
 
+            return text;
 
 
       }
@@ -310,7 +356,6 @@ $(document).ready(function(){
 
                 }
 
-          
         });
 
       }

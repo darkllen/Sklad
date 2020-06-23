@@ -4,7 +4,7 @@ $(document).ready(function(){
 // var myToken;
 
 
-  var link = 'file:///D:/Programming/Sklad/html/index.html';
+  var link = 'file:///D:/univer/summer/%D0%9A%D0%BB%D0%B8%D0%B5%D0%BD%D1%82-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80/projects/Sklad/html/index.html';
 
 
 $(document).on('click','.login_button',function(e){
@@ -29,6 +29,8 @@ $(document).on('click','.login_button',function(e){
 
           // myToken = tokenReturned;
           localStorage["tokenItem"] = tokenReturned;
+
+          
           // localStorage.setItem("tokenItem", tokenReturned); 
 
           // alert(myToken);
