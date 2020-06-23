@@ -653,7 +653,7 @@ $(document).ready(function(){
                 
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                  
+
                     // alert("ERR   a"+myToken);
 
                 }
@@ -756,6 +756,9 @@ $(document).ready(function(){
 
 
                     var element = document.getElementById(id+'_product');
+
+                    var total = element.childNodes[5].innerHTML*element.childNodes[7].childNodes[1].innerHTML;
+                    document.getElementById("total_price").innerHTML = "Total: $"+(parseInt(document.getElementById("total_price").innerHTML.replace ( /[^\d.]/g, '' ))-parseInt(total));
                     element.parentNode.removeChild(element);
 
 
@@ -825,12 +828,21 @@ $(document).ready(function(){
                     // alert('Incremented');
                     modalChangeQuantity.style.display = "none";
 
+                    var element = document.getElementById(id+'_product');
+
+
                     
-                    var quantity = document.getElementById(id+'_product').childNodes[7].childNodes[1].innerHTML;
+                    var quantity = element.childNodes[7].childNodes[1].innerHTML;
                   
                     var num2 =parseInt(num) + parseInt(quantity);
 
-                    document.getElementById(id+'_product').childNodes[7].childNodes[1].innerHTML = num2;
+                    element.childNodes[7].childNodes[1].innerHTML = num2;
+
+
+
+                    var total = element.childNodes[5].innerHTML*num;
+                    document.getElementById("total_price").innerHTML = "Total: $"+(parseInt(document.getElementById("total_price").innerHTML.replace ( /[^\d.]/g, '' ))+parseInt(total));
+                   
                               
                 },
                 error: function (json) {
@@ -863,12 +875,21 @@ $(document).ready(function(){
                     // alert('Incremented');
                     modalChangeQuantity.style.display = "none";
 
-                    
-                    var quantity = document.getElementById(id+'_product').childNodes[7].childNodes[1].innerHTML;
-                  
-                    var num2 =parseInt(quantity) - parseInt(num);
+                    var element = document.getElementById(id+'_product');
 
-                    document.getElementById(id+'_product').childNodes[7].childNodes[1].innerHTML = num2;
+
+                    
+                    var quantity = element.childNodes[7].childNodes[1].innerHTML;
+                  
+                    var num2 = parseInt(quantity)- parseInt(num);
+
+                    element.childNodes[7].childNodes[1].innerHTML = num2;
+
+
+
+                    var total = element.childNodes[5].innerHTML*num;
+                    document.getElementById("total_price").innerHTML = "Total: $"+(parseInt(document.getElementById("total_price").innerHTML.replace ( /[^\d.]/g, '' ))-parseInt(total));
+                   
                               
                 },
                 error: function (json) {
@@ -907,11 +928,20 @@ $(document).ready(function(){
 
                     var elements = document.getElementById(id+'_product');
 
+                    var prev_total = parseInt(document.getElementById("total_price").innerHTML.replace ( /[^\d.]/g, '' ));
+                    prev_total-= elements.childNodes[5].innerHTML * elements.childNodes[7].childNodes[1].innerHTML;
+
+
                     elements.childNodes[1].innerHTML = name;
                     elements.childNodes[3].innerHTML = description;
                     elements.childNodes[5].innerHTML = price;
                     elements.childNodes[8].innerHTML = producer;
                     elements.childNodes[10].innerHTML = groups;
+
+                    prev_total+=price*quantity;
+
+                    document.getElementById("total_price").innerHTML = "Total: $"+prev_total;
+                   
                               
                 },
                 error: function (json) {
