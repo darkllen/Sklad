@@ -2,9 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f058613-d825-4902-ad0e-c7ad4e1ced41" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/AESUtil.js" beforeDir="false" afterPath="$PROJECT_DIR$/html/AESUtil.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/a.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/a.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/dist/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/html/dist/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/db/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/db/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/html/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/message/Encryption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/Encryption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/HTTPClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/HTTPClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/HTTPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/HTTPServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/HTTPClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/HTTPClientTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -57,40 +66,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/ProductGroup.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="50" column="37" selection-start-line="50" selection-start-column="37" selection-end-line="50" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#704#705#0" expanded="true" />
-                <element signature="e#750#751#0" expanded="true" />
-                <element signature="e#1382#1383#0" expanded="true" />
-                <element signature="e#1440#1441#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/Product.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1122">
-              <caret line="95" column="37" selection-start-line="95" selection-start-column="37" selection-end-line="95" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2586#2587#0" expanded="true" />
-                <element signature="e#2674#2675#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/db/Database.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="56" column="39" selection-start-line="56" selection-start-column="39" selection-end-line="56" selection-end-column="39" />
+            <state relative-caret-position="207">
+              <caret line="56" column="56" selection-start-line="56" selection-start-column="56" selection-end-line="56" selection-end-column="56" />
               <folding>
                 <element signature="method#close#0;class#Database#0" />
                 <element signature="method#Database#1;class#Database#0" />
@@ -113,11 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/server/HTTPServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="700" column="75" selection-start-line="700" selection-start-column="75" selection-end-line="700" selection-end-column="75" />
+            <state relative-caret-position="179">
+              <caret line="377" column="59" selection-start-line="377" selection-start-column="59" selection-end-line="377" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -125,8 +104,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/HTTPClientTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="174" column="42" selection-start-line="174" selection-start-column="42" selection-end-line="174" selection-end-column="42" />
+            <state relative-caret-position="124">
+              <caret line="157" column="49" selection-start-line="157" selection-start-column="49" selection-end-line="157" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -143,8 +122,25 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/message/Encryption.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1156">
-              <caret line="68" column="18" selection-start-line="68" selection-start-column="18" selection-end-line="68" selection-end-column="18" />
+            <state relative-caret-position="156">
+              <caret line="112" column="18" selection-start-line="112" selection-start-column="18" selection-end-line="112" selection-end-column="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#611#612#0" expanded="true" />
+                <element signature="e#651#652#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/message/Message.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="43">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -152,8 +148,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Crypt.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="646">
+              <caret line="38" column="5" selection-start-line="6" selection-start-column="4" selection-end-line="38" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -161,8 +160,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="68">
+              <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -170,8 +169,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/server/HTTPClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="166" column="42" selection-start-line="166" selection-start-column="42" selection-end-line="166" selection-end-column="42" />
+            <state relative-caret-position="227">
+              <caret line="213" column="49" selection-start-line="213" selection-start-column="49" selection-end-line="213" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -192,7 +191,11 @@
       <find>incre</find>
       <find>returnError</find>
       <find>returnPri</find>
+      <find>createPro</find>
       <find>createP</find>
+      <find>GET</find>
+      <find>getA</find>
+      <find>Incre</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -208,18 +211,20 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/model/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/message/Encryption.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Product.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/ProductGroup.java" />
         <option value="$PROJECT_DIR$/src/main/java/AesUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/CryptoUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/Crypt.java" />
-        <option value="$PROJECT_DIR$/src/test/java/HTTPClientTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/HTTPClient.java" />
         <option value="$PROJECT_DIR$/src/test/java/DatabaseTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/HTTPServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/db/Database.java" />
+        <option value="$PROJECT_DIR$/src/main/java/message/CRC.java" />
+        <option value="$PROJECT_DIR$/src/main/java/message/CRC8.java" />
+        <option value="$PROJECT_DIR$/src/main/java/message/Encryption.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/HTTPClient.java" />
+        <option value="$PROJECT_DIR$/src/test/java/HTTPClientTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/HTTPServer.java" />
       </list>
     </option>
   </component>
@@ -274,6 +279,14 @@
               <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="db" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Sklad" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Sklad" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="message" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="Sklad" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -359,7 +372,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.All in Sklad">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Sklad" />
@@ -478,14 +491,11 @@
       <workItem from="1592870356549" duration="958000" />
       <workItem from="1592871894489" duration="1328000" />
       <workItem from="1592915835368" duration="3293000" />
-      <workItem from="1592942530888" duration="5833000" />
+      <workItem from="1592942530888" duration="10864000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DatabaseTest_updateProduct - 2020.06.23 at 23h 21m 17s.xml">
-      <configuration name="DatabaseTest.updateProduct" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="DatabaseTest_updateProduct - 2020.06.23 at 23h 21m 26s.xml">
       <configuration name="DatabaseTest.updateProduct" configurationId="JUnit" />
     </history-entry>
@@ -513,15 +523,17 @@
     <history-entry file="All_in_Sklad - 2020.06.23 at 23h 39m 13s.xml">
       <configuration name="All in Sklad" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_Sklad - 2020.06.24 at 02h 33m 53s.xml">
+      <configuration name="All in Sklad" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44782000" />
+    <option name="totallyTimeSpent" value="49813000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1641791" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1641791" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -530,7 +542,7 @@
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.4409534" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4409534" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -593,16 +605,6 @@
       </provider>
     </entry>
     <entry file="das://39c520f0-3856-43cd-97dd-3e14985a70f2/schema/store/table/p_group" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/message/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/message/WrongCrcException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -643,34 +645,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/message/Encryption.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1156">
-          <caret line="68" column="18" selection-start-line="68" selection-start-column="18" selection-end-line="68" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Crypt.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/HTTPClientTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="174" column="42" selection-start-line="174" selection-start-column="42" selection-end-line="174" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/HTTPClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="166" column="42" selection-start-line="166" selection-start-column="42" selection-end-line="166" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/DatabaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -678,24 +652,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/HTTPServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="700" column="75" selection-start-line="700" selection-start-column="75" selection-end-line="700" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/db/Database.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="56" column="39" selection-start-line="56" selection-start-column="39" selection-end-line="56" selection-end-column="39" />
+        <state relative-caret-position="207">
+          <caret line="56" column="56" selection-start-line="56" selection-start-column="56" selection-end-line="56" selection-end-column="56" />
           <folding>
             <element signature="method#close#0;class#Database#0" />
             <element signature="method#Database#1;class#Database#0" />
@@ -714,6 +674,77 @@
             <element signature="method#deleteProduct#0;class#Database#0" />
             <element signature="method#deleteProduct#2;class#Database#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/message/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="43">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Crypt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="5" selection-start-line="6" selection-start-column="4" selection-end-line="38" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/message/CRC8.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="104" column="33" lean-forward="true" selection-start-line="104" selection-start-column="33" selection-end-line="104" selection-end-column="33" />
+          <folding>
+            <element signature="e#5667#5668#0" expanded="true" />
+            <element signature="e#5712#5713#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/HTTPClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="213" column="49" selection-start-line="213" selection-start-column="49" selection-end-line="213" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/HTTPClientTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="157" column="49" selection-start-line="157" selection-start-column="49" selection-end-line="157" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/message/Encryption.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="112" column="18" selection-start-line="112" selection-start-column="18" selection-end-line="112" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#611#612#0" expanded="true" />
+            <element signature="e#651#652#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/HTTPServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="377" column="59" selection-start-line="377" selection-start-column="59" selection-end-line="377" selection-end-column="59" />
         </state>
       </provider>
     </entry>

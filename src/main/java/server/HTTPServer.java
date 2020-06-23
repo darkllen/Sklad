@@ -9,6 +9,10 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import message.Encryption;
+import message.Message;
+import message.WrongCrcException;
+import message.WrongStartOfMessage;
 import model.Product;
 import model.ProductGroup;
 import model.User;
@@ -22,6 +26,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.nio.charset.StandardCharsets;
+import java.security.GeneralSecurityException;
 import java.security.Key;
 import java.sql.SQLException;
 import java.util.*;
@@ -259,12 +264,17 @@ public class HTTPServer {
             outputStream.flush();
             outputStream.close();
         }
-        private void returnProducts(HttpExchange httpExchange, ArrayList<Product> product) throws IOException {
+        private void returnProducts(HttpExchange httpExchange, ArrayList<Product> product) throws Exception {
             OutputStream outputStream = httpExchange.getResponseBody();
             ObjectMapper mapper = new ObjectMapper();
             String htmlResponse = mapper.writeValueAsString(product);
-            httpExchange.sendResponseHeaders(200, htmlResponse.length());
-            outputStream.write(htmlResponse.getBytes());
+
+            Encryption encryption = new Encryption(httpExchange.getRequestHeaders().getOrDefault("token", new ArrayList<>()).get(0).substring(0,16));
+            Message message = new Message(0,0, htmlResponse);
+            byte[] toSend = encryption.encrypt(message);
+
+            httpExchange.sendResponseHeaders(200, toSend.length);
+            outputStream.write(toSend);
             outputStream.flush();
             outputStream.close();
         }
@@ -360,7 +370,21 @@ public class HTTPServer {
                 return;
             }
             if("POST".equals(httpExchange.getRequestMethod())){
-                JSONObject object= new JSONObject(new BufferedReader(new InputStreamReader(httpExchange.getRequestBody(), StandardCharsets.UTF_8)).lines().collect(Collectors.joining("\n")));
+                Encryption encryption = new Encryption(httpExchange.getRequestHeaders().getOrDefault("token", new ArrayList<>()).get(0).substring(0,16));
+                String message = null;
+                try {
+                    String s = new BufferedReader(new InputStreamReader(httpExchange.getRequestBody(), StandardCharsets.UTF_8)).lines().collect(Collectors.joining("\n"));
+                    System.out.println(Arrays.toString(s.getBytes()));
+                    message = encryption.decript(s.getBytes()).getMessage();
+                } catch (WrongCrcException e) {
+                    e.printStackTrace();
+                } catch (WrongStartOfMessage wrongStartOfMessage) {
+                    wrongStartOfMessage.printStackTrace();
+                } catch (GeneralSecurityException e) {
+                    e.printStackTrace();
+                }
+
+                JSONObject object= new JSONObject(message);
                 try {
                     Database database = new Database();
                     int num = object.getInt("num");

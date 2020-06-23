@@ -358,7 +358,7 @@ $(document).ready(function(){
           type: 'GET',
           headers: {"token": localStorage["tokenItem"] },
           success: function (json) {
-                      
+                      json = decryptMessage(json, localStorage["tokenItem"].substring(0,16));
                       var d = document.getElementById('Products'); 
                       
                       var text;
@@ -835,6 +835,9 @@ $(document).ready(function(){
        function increment(id, num){
 
         var send_data = {'id':id, 'num':num};
+        send_data = JSON.stringify(send_data);
+        send_data = encryptMessage(send_data, localStorage["tokenItem"].substring(0,16));
+        send_data = stringFromArray(send_data, 0, send_data.length);
 
         $.ajax({
           url: 'http://localhost:8001/api/good/increment'  ,
@@ -842,7 +845,7 @@ $(document).ready(function(){
           type: 'POST',
           headers: {"token": localStorage["tokenItem"] },
           
-          data: JSON.stringify(send_data),
+          data: send_data,
           dataType:'text',
          
           success: function () {

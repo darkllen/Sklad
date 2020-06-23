@@ -1,5 +1,7 @@
 import db.Database;
 import io.jsonwebtoken.lang.Assert;
+import message.WrongCrcException;
+import message.WrongStartOfMessage;
 import model.Product;
 import model.ProductGroup;
 import org.junit.jupiter.api.Assertions;
@@ -10,6 +12,7 @@ import server.HTTPServer;
 
 import javax.naming.AuthenticationException;
 import java.io.IOException;
+import java.security.GeneralSecurityException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -147,7 +150,7 @@ public class HTTPClientTest {
 
 
     @Test
-    void getAllProducts() throws NoSuchAlgorithmException, IOException, AuthenticationException, SQLException {
+    void getAllProducts() throws GeneralSecurityException, IOException, AuthenticationException, SQLException, WrongStartOfMessage, WrongCrcException {
         HTTPClient client = new HTTPClient();
         client.login(login,password);
         Database database = new Database();

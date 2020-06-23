@@ -1,6 +1,10 @@
 package server;
 
 import com.squareup.okhttp.*;
+import message.Encryption;
+import message.Message;
+import message.WrongCrcException;
+import message.WrongStartOfMessage;
 import model.Product;
 import model.ProductGroup;
 import org.json.JSONArray;
@@ -9,6 +13,7 @@ import org.json.JSONObject;
 import javax.naming.AuthenticationException;
 import javax.xml.bind.DatatypeConverter;
 import java.io.IOException;
+import java.security.GeneralSecurityException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -194,7 +199,7 @@ public class HTTPClient {
         return false;
     }
 
-    public ArrayList<Product> getAllProducts() throws IOException {
+    public ArrayList<Product> getAllProducts() throws IOException, GeneralSecurityException, WrongStartOfMessage, WrongCrcException {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .header("token", token)
@@ -203,7 +208,10 @@ public class HTTPClient {
                 .build();
         Response response = client.newCall(request).execute();
         if (response.code()==200){
-            JSONArray objects = new JSONArray(response.body().string());
+            Encryption encryption = new Encryption(token.substring(0,16));
+            String res = encryption.decript(response.body().string().getBytes()).getMessage();
+
+            JSONArray objects = new JSONArray(res);
             ArrayList<Product> products = new ArrayList<>();
 
             for (int i = 0 ; i< objects.length(); ++i){
