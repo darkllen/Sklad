@@ -23,7 +23,7 @@
 		<div class="tab tab_fixed">
   			<button class="tablinks" onclick="openTab(event, 'Products')" id="defaultOpen">Products</button>
 
-  			<button class="tablinks" onclick="openTab(event, 'Groups')">Groups</button>
+  			<button class="tablinks" onclick="openTab(event, 'Groups')" id="groupsOpen">Groups</button>
 
   			<button class="tablinks" onclick="openTab(event, 'Create')">Create</button>
 
@@ -165,23 +165,23 @@
 
 
 		<div id="SearchProduct" class="tabcontent searchtabcontent"  style="margin-top: 40px;">
-		  	<input class="inputs_wide" id="input_product_name" type="text" placeholder="Name"><br>
+		  	<input class="inputs_wide" id="search_product_name" type="text" placeholder="Name contains"><br>
 
-		  	<textarea class="inputs_wide" id="input_product_description" type="text" placeholder="Description"></textarea><br>
+		  	<textarea class="inputs_wide" id="search_product_description" type="text" placeholder="Description contains"></textarea><br>
 
-		  	<input class="inputs" id="input_product_price_more" type="number" placeholder="Price"
-		  	><input class="inputs" id="input_product_price_less" type="number" placeholder="Price"><br>
+		  	<input class="inputs" id="search_product_price_more" type="number" placeholder="Price more than"
+		  	><input class="inputs" id="search_product_price_less" style='margin-left: 4%;'type="number" placeholder="Price less than"><br>
 
-		  	<input class="inputs" id="input_product_quantity_more" type="number" placeholder="Quantity"
-		  	><input class="inputs" id="input_product_quantity_less" type="number" placeholder="Quantity"><br>
-
-
-
-		  	<input class="inputs_wide" id="input_product_producer" type="text" placeholder="Producer"><br>
+		  	<input class="inputs" id="search_product_quantity_more" type="number" placeholder="Quantity more than"
+		  	><input class="inputs" id="search_product_quantity_less"  style='margin-left: 4%;'type="number" placeholder="Quantity less than"><br>
 
 
 
-		  	<textarea class="inputs" id="input_product_groups" type="text" placeholder="Groups"></textarea><br>
+		  	<input class="inputs_wide" id="search_product_producer" type="text" placeholder="Producer contains"><br>
+
+
+
+		  	<textarea class="inputs_wide" id="search_product_groups" type="text" placeholder="Groups contains"></textarea><br>
 
 
 		  	<button class="button" id="create_product_button">Create</button>

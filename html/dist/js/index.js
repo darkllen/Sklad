@@ -315,6 +315,29 @@ $(document).ready(function(){
     });
 
 
+    $(document).on("click", "#search_product_button", function(e){
+
+        var name = document.getElementById('search_product_name').value;
+        var description = document.getElementById('search_product_description').value;
+        var quantityMore = document.getElementById('search_product_quantity_more').value;
+        var quantityLess = document.getElementById('search_product_quantity_less').value;
+        var priceMore = document.getElementById('search_product_price_more').value;
+        var priceLess = document.getElementById('search_product_price_less').value;
+        var producer = document.getElementById('search_product_producer').value;
+        var groups = document.getElementById('search_product_groups').value;
+
+        // document.getElementById('input_product_name').value='';
+        // document.getElementById('input_product_description').value='';
+        // document.getElementById('input_product_price').value='';
+        // document.getElementById('input_product_producer').value='';
+        // document.getElementById('input_product_groups').value='';
+
+        searchProduct(name, description, quantityMore, quantityLess, priceMore, priceLess, producer, groups);
+
+
+    });
+
+
     $(document).on("click", "#search_group_button", function(e){
 
         var name = document.getElementById('search_group_name').value;
@@ -324,7 +347,6 @@ $(document).ready(function(){
         // document.getElementById('input_group_description').value='';
 
         searchGroup(name, description);
-
 
     });
 
@@ -560,6 +582,142 @@ $(document).ready(function(){
                       text+='</table>';
 
                       d.innerHTML = text;
+
+
+
+
+                              
+                },
+               error: function (jqXHR, textStatus, errorThrown) {
+                    // alert("ERR   a"+myToken);
+                    alert(jqXHR);
+                    alert(textStatus);
+                    alert(errorThrown);
+
+                }
+
+        });
+
+      }
+
+
+      function searchProduct(name, description, quantityMore, quantityLess, priceMore, priceLess, producer, groups){
+
+         $.ajax({
+          //todo url and data
+          url: 'http://localhost:8001/api/good',
+
+          type: 'GET',
+          headers: {"token": localStorage["tokenItem"] },
+          success: function (json) {
+                      
+                      var d = document.getElementById('Products'); 
+                      
+                      var text;
+                      text = '<table  style="margin-top: 0px;"><tr>';
+
+                      text+='<th>Name</th>';
+                      text+='<th>Description</th>';
+                      text+='<th>Price</th>';
+                      text+='<th>Quantity</th>';
+                      text+='<th>Producer</th>'
+                      text+='<th>Group</th>';
+                      text+='<th>Edit</th>';
+                      text+='<th>Delete</th>';
+
+                      text+='</tr>';
+
+                      json = JSON.parse(json);
+
+                      var total = 0;
+
+                      
+                      for(var item in json){
+
+                        var product=formProduct(json[item]);
+                        total+=json[item].price*json[item].num;
+                        text+=product;
+                      }
+
+                text+='</table>';
+
+                d.innerHTML=text;
+
+                total = "Total: $" + total;
+
+                document.getElementById("total_price").innerHTML = total;
+
+
+                document.getElementById("defaultOpen").click();
+
+                
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    // alert("ERR   a"+myToken);
+
+                }
+
+          
+        });
+      }
+
+
+      function searchGroup(name, description){
+
+
+        var send_data = {'name':name, 'description':description};
+
+        $.ajax({
+
+          //todo url and data
+          url: 'http://localhost:8001/api/group' ,
+
+          type: 'PUT',
+          headers: {"token": localStorage["tokenItem"] },
+
+          data: JSON.stringify(send_data),
+          dataType:'text',
+          success: function (json) {
+                    
+
+
+                    var d = document.getElementById('Groups'); 
+                      
+                      d.innerHTML = '';
+
+                      // console.log(json);
+
+
+                      var text = '<table  style="margin-top: 0px;">';
+                      text += '<tr>';
+                      text += '<th>Name</th>';
+                       text += '<th>Description</th>';
+                       text += '<th>Edit</th>';
+                       text += '<th>Delete</th>';
+                     text += '</tr>';
+
+
+
+                     json = JSON.parse(json);
+
+                      
+                          for(var item in json){
+
+                      
+
+                            var group=formGroup(json[item]);
+                            text+=group;
+
+                  }
+
+                  text+='</table>';
+
+                d.innerHTML=text;
+
+
+
+                document.getElementById("groupsOpen").click();
+
 
 
 
