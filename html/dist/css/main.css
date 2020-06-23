@@ -54,13 +54,19 @@ body {
 }
 
 
-.total_price{
+.total{
   margin-top: 60px;
-  margin-left: 85%;
+  margin-left: 70%;
   display: block;
 
 }
 
+.total_quantity{
+  /*margin-top: 60px;*/
+  margin-left: 20px;
+  /*display: block;*/
+
+}
 
 
 /*Table design*/
