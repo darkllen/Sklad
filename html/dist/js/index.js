@@ -189,7 +189,7 @@ $(document).ready(function(){
           url: 'http://localhost:8001/api/good',
 
           type: 'GET',
-          headers: {Origin:"s" },
+          headers: {token:"s" },
           success: function (json) {
                 
                       var d = document.getElementById('Products'); 

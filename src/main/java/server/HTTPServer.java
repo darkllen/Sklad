@@ -69,6 +69,12 @@ public class HTTPServer {
     private class LoginHandler implements HttpHandler {
         public void handle(HttpExchange httpExchange) throws IOException {
             httpExchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
+            if (httpExchange.getRequestMethod().equalsIgnoreCase("OPTIONS")) {
+                httpExchange.getResponseHeaders().add("Access-Control-Allow-Methods", "GET, OPTIONS, PUT, POST, DELETE");
+                httpExchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type,token");
+                httpExchange.sendResponseHeaders(204, -1);
+                return;
+            }
             if("GET".equals(httpExchange.getRequestMethod())) {
                 Map<String, String> params = queryToMap(httpExchange.getRequestURI().getQuery());
                 try {
@@ -142,9 +148,14 @@ public class HTTPServer {
         public void handle(HttpExchange httpExchange) throws IOException {
             System.out.println("b");
             httpExchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
-            httpExchange.getResponseHeaders().add("Access-Control-Allow-Headers", "*");
-            httpExchange.getResponseHeaders().add("Access-Control-Request-Headers", "*");
-            System.out.println(httpExchange.getRequestHeaders().values());
+            if (httpExchange.getRequestMethod().equalsIgnoreCase("OPTIONS")) {
+                httpExchange.getResponseHeaders().add("Access-Control-Allow-Methods", "GET, OPTIONS, PUT, POST, DELETE");
+                httpExchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type,token");
+                httpExchange.sendResponseHeaders(204, -1);
+                return;
+            }
+
+            System.out.println(httpExchange.getRequestHeaders().keySet());
             Claims claims;
             try{
                 claims = Jwts.parser()
@@ -250,6 +261,12 @@ public class HTTPServer {
         @Override
         public void handle(HttpExchange httpExchange) throws IOException {
             httpExchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
+            if (httpExchange.getRequestMethod().equalsIgnoreCase("OPTIONS")) {
+                httpExchange.getResponseHeaders().add("Access-Control-Allow-Methods", "GET, OPTIONS, PUT, POST, DELETE");
+                httpExchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type,token");
+                httpExchange.sendResponseHeaders(204, -1);
+                return;
+            }
             Claims claims;
             try{
                 claims = Jwts.parser()
@@ -311,6 +328,12 @@ public class HTTPServer {
         @Override
         public void handle(HttpExchange httpExchange) throws IOException {
             httpExchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
+            if (httpExchange.getRequestMethod().equalsIgnoreCase("OPTIONS")) {
+                httpExchange.getResponseHeaders().add("Access-Control-Allow-Methods", "GET, OPTIONS, PUT, POST, DELETE");
+                httpExchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type,token");
+                httpExchange.sendResponseHeaders(204, -1);
+                return;
+            }
             Claims claims;
             try{
                 claims = Jwts.parser()
@@ -348,6 +371,12 @@ public class HTTPServer {
         @Override
         public void handle(HttpExchange httpExchange) throws IOException {
             httpExchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
+            if (httpExchange.getRequestMethod().equalsIgnoreCase("OPTIONS")) {
+                httpExchange.getResponseHeaders().add("Access-Control-Allow-Methods", "GET, OPTIONS, PUT, POST, DELETE");
+                httpExchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type,token");
+                httpExchange.sendResponseHeaders(204, -1);
+                return;
+            }
             Claims claims;
             try{
                 claims = Jwts.parser()
@@ -384,6 +413,12 @@ public class HTTPServer {
     private class GroupHandler implements HttpHandler {
         public void handle(HttpExchange httpExchange) throws IOException {
             httpExchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
+            if (httpExchange.getRequestMethod().equalsIgnoreCase("OPTIONS")) {
+                httpExchange.getResponseHeaders().add("Access-Control-Allow-Methods", "GET, OPTIONS, PUT, POST, DELETE");
+                httpExchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type,token");
+                httpExchange.sendResponseHeaders(204, -1);
+                return;
+            }
             Claims claims;
             try{
                 claims = Jwts.parser()
@@ -477,6 +512,12 @@ public class HTTPServer {
         @Override
         public void handle(HttpExchange httpExchange) throws IOException {
             httpExchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
+            if (httpExchange.getRequestMethod().equalsIgnoreCase("OPTIONS")) {
+                httpExchange.getResponseHeaders().add("Access-Control-Allow-Methods", "GET, OPTIONS, PUT, POST, DELETE");
+                httpExchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type,token");
+                httpExchange.sendResponseHeaders(204, -1);
+                return;
+            }
             Claims claims;
             try{
                 claims = Jwts.parser()
