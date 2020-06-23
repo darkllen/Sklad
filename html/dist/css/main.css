@@ -4,6 +4,7 @@
 }
 body {
 	margin-bottom: 70px;
+
 }
 
 
@@ -93,6 +94,8 @@ tr:nth-child(even) {
 	margin-left: 5%;
 	margin-top: 2%;
 	width: 25%;
+  font-family: arial, sans-serif;
+
 	/*height: 30px;*/
 }
 
@@ -100,6 +103,8 @@ tr:nth-child(even) {
   margin-left: 5%;
   margin-top: 2%;
   width: 55%;
+  font-family: arial, sans-serif;
+
   /*height: 30px;*/
 }
 
@@ -107,6 +112,8 @@ tr:nth-child(even) {
 	margin-left: 5%;
 	margin-top: 2%;
 	width: 55%;
+  font-family: arial, sans-serif;
+  
 	/*height: 30px;*/
 }
 
