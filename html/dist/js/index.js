@@ -423,6 +423,8 @@ $(document).ready(function(){
 
 
           success: function (json) {
+                      json = decryptMessage(json, localStorage["tokenItem"].substring(0,16));
+
                 
                       var d = document.getElementById('Groups'); 
                       
@@ -514,7 +516,9 @@ $(document).ready(function(){
         var groupsArr = groups.split(', ');
         
         var send_data = {'name':name, 'description':description, 'num':quantity, 'price':price, 'producer':producer, 'groups':groupsArr};
-
+        send_data = JSON.stringify(send_data);
+        send_data = encryptMessage(send_data, localStorage["tokenItem"].substring(0,16));
+        send_data = stringFromArray(send_data, 0, send_data.length);
         // console.log(send_data);
         $.ajax({
           url: 'http://localhost:8001/api/good' ,
@@ -522,7 +526,7 @@ $(document).ready(function(){
           type: 'PUT',
           headers: {"token": localStorage["tokenItem"] },
 
-          data: JSON.stringify(send_data),
+          data: send_data,
           dataType:'text',
           success: function (number) {
                     alert('Created');
@@ -566,6 +570,9 @@ $(document).ready(function(){
       function createGroup(name, description){
         
         var send_data = {'name':name, 'description':description};
+        send_data = JSON.stringify(send_data);
+        send_data = encryptMessage(send_data, localStorage["tokenItem"].substring(0,16));
+        send_data = stringFromArray(send_data, 0, send_data.length);
 
         $.ajax({
           url: 'http://localhost:8001/api/group' ,
@@ -573,7 +580,7 @@ $(document).ready(function(){
           type: 'PUT',
           headers: {"token": localStorage["tokenItem"] },
 
-          data: JSON.stringify(send_data),
+          data: send_data,
           dataType:'text',
           success: function (number) {
                     alert('Created');
@@ -615,14 +622,17 @@ $(document).ready(function(){
         var groupsArr = groups.split(', ');
 
         var send_data = {'name':name, 'description':description, 'numLess':quantityLess, 'numMore':quantityMore, 'priceLess': priceLess,'priceMore':priceMore, 'producer':producer, 'groups':groupsArr};
-        console.log(send_data);
+        
+        send_data = JSON.stringify(send_data);
+        send_data = encryptMessage(send_data, localStorage["tokenItem"].substring(0,16));
+        send_data = stringFromArray(send_data, 0, send_data.length);
          $.ajax({
           //todo url and data
           url: 'http://localhost:8001/api/search/good',
 
           type: 'POST',
           headers: {"token": localStorage["tokenItem"] },
-          data: JSON.stringify(send_data),
+          data: send_data,
           dataType:'text',
           success: function (json) {
                       
@@ -686,7 +696,9 @@ $(document).ready(function(){
 
 
         var send_data = {'name':name, 'description':description};
-
+        send_data = JSON.stringify(send_data);
+        send_data = encryptMessage(send_data, localStorage["tokenItem"].substring(0,16));
+        send_data = stringFromArray(send_data, 0, send_data.length);
 
         $.ajax({
 
@@ -696,7 +708,7 @@ $(document).ready(function(){
           type: 'POST',
           headers: {"token": localStorage["tokenItem"] },
 
-          data: JSON.stringify(send_data),
+          data: send_data,
           dataType:'text',
           success: function (json) {
                     
@@ -886,6 +898,9 @@ $(document).ready(function(){
          function decrement(id, num){
 
         var send_data = {'id':id, 'num':num};
+        send_data = JSON.stringify(send_data);
+        send_data = encryptMessage(send_data, localStorage["tokenItem"].substring(0,16));
+        send_data = stringFromArray(send_data, 0, send_data.length);
 
         $.ajax({
           url: 'http://localhost:8001/api/good/decrement'  ,
@@ -893,7 +908,7 @@ $(document).ready(function(){
           type: 'POST',
           headers: {"token": localStorage["tokenItem"] },
           
-          data: JSON.stringify(send_data),
+          data: send_data,
           dataType:'text',
          
           success: function () {
@@ -936,6 +951,9 @@ $(document).ready(function(){
 
         var send_data = {'id':id, 'name':name, 'description':description, 'num':quantity, 'price':price, 'producer':producer, 'groups':groupsArr};
 
+        send_data = JSON.stringify(send_data);
+        send_data = encryptMessage(send_data, localStorage["tokenItem"].substring(0,16));
+        send_data = stringFromArray(send_data, 0, send_data.length);
 
 
         $.ajax({
@@ -944,7 +962,7 @@ $(document).ready(function(){
           type: 'POST',
           headers: {"token": localStorage["tokenItem"] },
           
-          data: JSON.stringify(send_data),
+          data: send_data,
           dataType:'text',
          
           success: function () {
@@ -984,6 +1002,9 @@ $(document).ready(function(){
 
 
         var send_data = {'id':id, 'name':name, 'description':description};
+        send_data = JSON.stringify(send_data);
+        send_data = encryptMessage(send_data, localStorage["tokenItem"].substring(0,16));
+        send_data = stringFromArray(send_data, 0, send_data.length);
 
 
 
@@ -993,7 +1014,7 @@ $(document).ready(function(){
           type: 'POST',
           headers: {"token": localStorage["tokenItem"] },
           
-          data: JSON.stringify(send_data),
+          data: send_data,
           dataType:'text',
          
           success: function () {
