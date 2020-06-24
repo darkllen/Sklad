@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f058613-d825-4902-ad0e-c7ad4e1ced41" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/AESUtil.js" beforeDir="false" afterPath="$PROJECT_DIR$/html/AESUtil.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/a.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/a.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/dist/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/html/dist/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/html/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/message/Encryption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/message/Encryption.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/HTTPClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/HTTPClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/HTTPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/HTTPServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/HTTPClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/HTTPClientTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -95,8 +84,134 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/server/HTTPServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="377" column="59" selection-start-line="377" selection-start-column="59" selection-end-line="377" selection-end-column="59" />
+            <state relative-caret-position="85">
+              <caret line="37" column="25" lean-forward="true" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+              <folding>
+                <element signature="method#HTTPServer#0;class#HTTPServer#0" />
+                <element signature="e#1143#1366#1" />
+                <element signature="e#1980#2041#0" />
+                <element signature="method#returnError#0;class#HTTPServer#0" />
+                <element signature="class#LoginHandler#0;class#HTTPServer#0" />
+                <element signature="method#handle#0;class#LoginHandler#0;class#HTTPServer#0" />
+                <element signature="e#2738#3067#1" />
+                <element signature="e#3130#3745#1" />
+                <element signature="e#3250#3682#0" />
+                <element signature="e#3506#3580#1" />
+                <element signature="e#3585#3664#1" />
+                <element signature="method#queryToMap#0;class#LoginHandler#0;class#HTTPServer#0" />
+                <element signature="e#3971#4216#1" />
+                <element signature="e#4062#4133#1" />
+                <element signature="e#4137#4202#1" />
+                <element signature="method#returnToken#0;class#LoginHandler#0;class#HTTPServer#0" />
+                <element signature="method#createJWT#0;class#LoginHandler#0;class#HTTPServer#0" />
+                <element signature="e#5791#5843#0" />
+                <element signature="e#6344#6673#1" />
+                <element signature="e#6868#7136#0" />
+                <element signature="e#7170#7257#0" />
+                <element signature="e#7316#7403#1" />
+                <element signature="e#8593#8653#0" />
+                <element signature="e#8702#8780#0" />
+                <element signature="e#8816#8876#0" />
+                <element signature="e#8540#8651#1" />
+                <element signature="e#9098#9176#1" />
+                <element signature="e#9019#9040#0" />
+                <element signature="e#9170#10559#1" />
+                <element signature="e#10592#10930#0" />
+                <element signature="e#10959#11019#0" />
+                <element signature="e#11068#11146#0" />
+                <element signature="e#11182#11242#0" />
+                <element signature="e#9383#10447#0" />
+                <element signature="e#10025#10136#1" />
+                <element signature="e#10477#10498#0" />
+                <element signature="e#10628#10994#1" />
+                <element signature="e#10650#10888#0" />
+                <element signature="method#handle#0;class#SpecificGoodHandler#0;class#HTTPServer#0" />
+                <element signature="e#12346#12675#1" />
+                <element signature="e#12718#12986#0" />
+                <element signature="e#13020#13107#0" />
+                <element signature="e#13166#13253#1" />
+                <element signature="e#13318#13776#1" />
+                <element signature="e#13340#13670#0" />
+                <element signature="e#13846#14424#1" />
+                <element signature="e#13868#14292#0" />
+                <element signature="e#14051#14225#0" />
+                <element signature="method#handle#0;class#IncrementHandler#0;class#HTTPServer#0" />
+                <element signature="e#15270#15599#1" />
+                <element signature="e#15642#15910#0" />
+                <element signature="e#15944#16031#0" />
+                <element signature="e#16090#16177#1" />
+                <element signature="e#16240#17224#1" />
+                <element signature="e#17146#17366#0" />
+                <element signature="e#17395#17455#0" />
+                <element signature="e#17504#17582#0" />
+                <element signature="e#17618#17678#0" />
+                <element signature="e#16453#17112#0" />
+                <element signature="e#16689#16849#1" />
+                <element signature="e#17314#17335#0" />
+                <element signature="e#17730#18059#1" />
+                <element signature="e#18102#18370#0" />
+                <element signature="e#18404#18491#0" />
+                <element signature="e#18550#18637#1" />
+                <element signature="e#21674#22012#0" />
+                <element signature="e#22041#22101#0" />
+                <element signature="e#22150#22228#0" />
+                <element signature="e#22264#22324#0" />
+                <element signature="e#19104#19215#1" />
+                <element signature="e#19463#19484#0" />
+                <element signature="e#19858#20187#1" />
+                <element signature="e#20230#20498#0" />
+                <element signature="e#20532#20619#0" />
+                <element signature="e#20678#20765#1" />
+                <element signature="e#24536#24874#0" />
+                <element signature="e#24903#24963#0" />
+                <element signature="e#25012#25090#0" />
+                <element signature="e#25126#25186#0" />
+                <element signature="e#21277#21388#1" />
+                <element signature="e#21619#21640#0" />
+                <element signature="e#21770#22777#1" />
+                <element signature="e#26212#26550#0" />
+                <element signature="e#26579#26639#0" />
+                <element signature="e#26688#26766#0" />
+                <element signature="e#26802#26862#0" />
+                <element signature="e#21983#22665#0" />
+                <element signature="e#22269#22380#1" />
+                <element signature="e#22695#22716#0" />
+                <element signature="e#22846#23211#1" />
+                <element signature="e#22868#23105#0" />
+                <element signature="method#handle#0;class#SpecificGroupHandler#0;class#HTTPServer#0" />
+                <element signature="e#24567#24896#1" />
+                <element signature="e#24939#25207#0" />
+                <element signature="e#25241#25328#0" />
+                <element signature="e#25387#25474#1" />
+                <element signature="e#25539#25994#1" />
+                <element signature="e#25561#25888#0" />
+                <element signature="e#26064#26644#1" />
+                <element signature="e#26086#26512#0" />
+                <element signature="e#26269#26445#0" />
+                <element signature="e#27378#27707#1" />
+                <element signature="e#27750#28018#0" />
+                <element signature="e#28052#28139#0" />
+                <element signature="e#28198#28285#1" />
+                <element signature="e#33618#33956#0" />
+                <element signature="e#33985#34045#0" />
+                <element signature="e#34094#34172#0" />
+                <element signature="e#34208#34268#0" />
+                <element signature="e#29288#29309#0" />
+                <element signature="e#30288#30617#1" />
+                <element signature="e#30661#30929#0" />
+                <element signature="e#30965#31052#0" />
+                <element signature="e#31112#31199#1" />
+                <element signature="e#37250#37588#0" />
+                <element signature="e#37617#37677#0" />
+                <element signature="e#37726#37804#0" />
+                <element signature="e#37840#37900#0" />
+                <element signature="e#32280#32359#0" />
+                <element signature="e#32515#32736#0" />
+                <element signature="e#32792#33014#0" />
+                <element signature="e#33068#33290#0" />
+                <element signature="e#33816#34001#1" />
+                <element signature="e#34153#34174#1" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -491,7 +606,7 @@
       <workItem from="1592870356549" duration="958000" />
       <workItem from="1592871894489" duration="1328000" />
       <workItem from="1592915835368" duration="3293000" />
-      <workItem from="1592942530888" duration="10864000" />
+      <workItem from="1592942530888" duration="11719000" />
     </task>
     <servers />
   </component>
@@ -528,12 +643,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49813000" />
+    <option name="totallyTimeSpent" value="50668000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1641791" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1641791" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -542,7 +658,7 @@
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4409534" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.4409534" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -708,13 +824,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/HTTPClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="213" column="49" selection-start-line="213" selection-start-column="49" selection-end-line="213" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/HTTPClientTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
@@ -741,10 +850,143 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/HTTPClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="213" column="49" selection-start-line="213" selection-start-column="49" selection-end-line="213" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/HTTPServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="377" column="59" selection-start-line="377" selection-start-column="59" selection-end-line="377" selection-end-column="59" />
+        <state relative-caret-position="85">
+          <caret line="37" column="25" lean-forward="true" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+          <folding>
+            <element signature="method#HTTPServer#0;class#HTTPServer#0" />
+            <element signature="e#1143#1366#1" />
+            <element signature="e#1980#2041#0" />
+            <element signature="method#returnError#0;class#HTTPServer#0" />
+            <element signature="class#LoginHandler#0;class#HTTPServer#0" />
+            <element signature="method#handle#0;class#LoginHandler#0;class#HTTPServer#0" />
+            <element signature="e#2738#3067#1" />
+            <element signature="e#3130#3745#1" />
+            <element signature="e#3250#3682#0" />
+            <element signature="e#3506#3580#1" />
+            <element signature="e#3585#3664#1" />
+            <element signature="method#queryToMap#0;class#LoginHandler#0;class#HTTPServer#0" />
+            <element signature="e#3971#4216#1" />
+            <element signature="e#4062#4133#1" />
+            <element signature="e#4137#4202#1" />
+            <element signature="method#returnToken#0;class#LoginHandler#0;class#HTTPServer#0" />
+            <element signature="method#createJWT#0;class#LoginHandler#0;class#HTTPServer#0" />
+            <element signature="e#5791#5843#0" />
+            <element signature="e#6344#6673#1" />
+            <element signature="e#6868#7136#0" />
+            <element signature="e#7170#7257#0" />
+            <element signature="e#7316#7403#1" />
+            <element signature="e#8593#8653#0" />
+            <element signature="e#8702#8780#0" />
+            <element signature="e#8816#8876#0" />
+            <element signature="e#8540#8651#1" />
+            <element signature="e#9098#9176#1" />
+            <element signature="e#9019#9040#0" />
+            <element signature="e#9170#10559#1" />
+            <element signature="e#10592#10930#0" />
+            <element signature="e#10959#11019#0" />
+            <element signature="e#11068#11146#0" />
+            <element signature="e#11182#11242#0" />
+            <element signature="e#9383#10447#0" />
+            <element signature="e#10025#10136#1" />
+            <element signature="e#10477#10498#0" />
+            <element signature="e#10628#10994#1" />
+            <element signature="e#10650#10888#0" />
+            <element signature="method#handle#0;class#SpecificGoodHandler#0;class#HTTPServer#0" />
+            <element signature="e#12346#12675#1" />
+            <element signature="e#12718#12986#0" />
+            <element signature="e#13020#13107#0" />
+            <element signature="e#13166#13253#1" />
+            <element signature="e#13318#13776#1" />
+            <element signature="e#13340#13670#0" />
+            <element signature="e#13846#14424#1" />
+            <element signature="e#13868#14292#0" />
+            <element signature="e#14051#14225#0" />
+            <element signature="method#handle#0;class#IncrementHandler#0;class#HTTPServer#0" />
+            <element signature="e#15270#15599#1" />
+            <element signature="e#15642#15910#0" />
+            <element signature="e#15944#16031#0" />
+            <element signature="e#16090#16177#1" />
+            <element signature="e#16240#17224#1" />
+            <element signature="e#17146#17366#0" />
+            <element signature="e#17395#17455#0" />
+            <element signature="e#17504#17582#0" />
+            <element signature="e#17618#17678#0" />
+            <element signature="e#16453#17112#0" />
+            <element signature="e#16689#16849#1" />
+            <element signature="e#17314#17335#0" />
+            <element signature="e#17730#18059#1" />
+            <element signature="e#18102#18370#0" />
+            <element signature="e#18404#18491#0" />
+            <element signature="e#18550#18637#1" />
+            <element signature="e#21674#22012#0" />
+            <element signature="e#22041#22101#0" />
+            <element signature="e#22150#22228#0" />
+            <element signature="e#22264#22324#0" />
+            <element signature="e#19104#19215#1" />
+            <element signature="e#19463#19484#0" />
+            <element signature="e#19858#20187#1" />
+            <element signature="e#20230#20498#0" />
+            <element signature="e#20532#20619#0" />
+            <element signature="e#20678#20765#1" />
+            <element signature="e#24536#24874#0" />
+            <element signature="e#24903#24963#0" />
+            <element signature="e#25012#25090#0" />
+            <element signature="e#25126#25186#0" />
+            <element signature="e#21277#21388#1" />
+            <element signature="e#21619#21640#0" />
+            <element signature="e#21770#22777#1" />
+            <element signature="e#26212#26550#0" />
+            <element signature="e#26579#26639#0" />
+            <element signature="e#26688#26766#0" />
+            <element signature="e#26802#26862#0" />
+            <element signature="e#21983#22665#0" />
+            <element signature="e#22269#22380#1" />
+            <element signature="e#22695#22716#0" />
+            <element signature="e#22846#23211#1" />
+            <element signature="e#22868#23105#0" />
+            <element signature="method#handle#0;class#SpecificGroupHandler#0;class#HTTPServer#0" />
+            <element signature="e#24567#24896#1" />
+            <element signature="e#24939#25207#0" />
+            <element signature="e#25241#25328#0" />
+            <element signature="e#25387#25474#1" />
+            <element signature="e#25539#25994#1" />
+            <element signature="e#25561#25888#0" />
+            <element signature="e#26064#26644#1" />
+            <element signature="e#26086#26512#0" />
+            <element signature="e#26269#26445#0" />
+            <element signature="e#27378#27707#1" />
+            <element signature="e#27750#28018#0" />
+            <element signature="e#28052#28139#0" />
+            <element signature="e#28198#28285#1" />
+            <element signature="e#33618#33956#0" />
+            <element signature="e#33985#34045#0" />
+            <element signature="e#34094#34172#0" />
+            <element signature="e#34208#34268#0" />
+            <element signature="e#29288#29309#0" />
+            <element signature="e#30288#30617#1" />
+            <element signature="e#30661#30929#0" />
+            <element signature="e#30965#31052#0" />
+            <element signature="e#31112#31199#1" />
+            <element signature="e#37250#37588#0" />
+            <element signature="e#37617#37677#0" />
+            <element signature="e#37726#37804#0" />
+            <element signature="e#37840#37900#0" />
+            <element signature="e#32280#32359#0" />
+            <element signature="e#32515#32736#0" />
+            <element signature="e#32792#33014#0" />
+            <element signature="e#33068#33290#0" />
+            <element signature="e#33816#34001#1" />
+            <element signature="e#34153#34174#1" />
+          </folding>
         </state>
       </provider>
     </entry>
