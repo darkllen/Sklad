@@ -50,7 +50,7 @@ public class HTTPClient {
     }
 
 
-    public Product getProduct(int id) throws IOException {
+    public Product getProduct(int id) throws IOException, GeneralSecurityException, WrongStartOfMessage, WrongCrcException {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .header("token", token)
@@ -59,7 +59,9 @@ public class HTTPClient {
                 .build();
         Response response = client.newCall(request).execute();
         if (response.code()==200){
-            JSONObject object = new JSONObject(response.body().string());
+            Encryption encryption = new Encryption(token.substring(0,16));
+            String res = encryption.decript(response.body().string().getBytes()).getMessage();
+            JSONObject object = new JSONObject(res);
             Product product = new Product(object.getInt("id"),
                     object.getString("name"),
                     object.getJSONArray("groups").toList().stream().map(x->(String) x).collect(Collectors.toCollection(ArrayList::new)),
@@ -89,7 +91,7 @@ public class HTTPClient {
         return false;
     }
 
-    public int insertProduct(String name, ArrayList<String> groups, int price, int num, String description, String producer) throws IOException {
+    public int insertProduct(String name, ArrayList<String> groups, int price, int num, String description, String producer) throws Exception {
         OkHttpClient client = new OkHttpClient();
 
         JSONObject jsonObject = new JSONObject()
@@ -100,8 +102,13 @@ public class HTTPClient {
                 .put("description", description)
                 .put("producer", producer);
 
-        MediaType JSON = MediaType.parse("application/json; charset=utf-8");
-        RequestBody body = RequestBody.create(JSON, jsonObject.toString());
+        Encryption encryption = new Encryption(token.substring(0,16));
+        Message message = new Message(0,0,jsonObject.toString());
+        String res = new String(encryption.encrypt(message));
+
+
+        MediaType JSON = MediaType.parse("text; charset=utf-8");
+        RequestBody body = RequestBody.create(JSON, res);
 
         Request request = new Request.Builder()
                 .header("token", token)
@@ -210,7 +217,6 @@ public class HTTPClient {
         if (response.code()==200){
             Encryption encryption = new Encryption(token.substring(0,16));
             String res = encryption.decript(response.body().string().getBytes()).getMessage();
-
             JSONArray objects = new JSONArray(res);
             ArrayList<Product> products = new ArrayList<>();
 

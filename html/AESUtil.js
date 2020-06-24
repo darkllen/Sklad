@@ -46,7 +46,7 @@ var encryptMessage = function(str, key) {
 var encryptedMessage = encryptAes(str,key).split('').map(s); // char codes
 var wLen = encryptedMessage.length+8;
 
-var encr = new Uint8Array(18+wLen);
+var encr = new Int32Array(18+wLen);
 
 var i = 0;
 encr[i++] = 0x13;
@@ -54,8 +54,13 @@ encr[i++] = 0x1;
 i+=8;
 
 var lenInBytes = longToByteArray(wLen);
+console.log(lenInBytes);
 for (var a = 0; a< lenInBytes.length; a++){
+
 encr[i++] = lenInBytes[a];
+                if (encr[i-1]>127){
+          encr[i-1] = -129+(encr[i-1]-127);
+        }
 }
 
  i+=10;

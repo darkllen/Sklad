@@ -2,7 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f058613-d825-4902-ad0e-c7ad4e1ced41" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/AESUtil.js" beforeDir="false" afterPath="$PROJECT_DIR$/html/AESUtil.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/dist/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/html/dist/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/HTTPClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/HTTPClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/HTTPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/HTTPServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/HTTPClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/HTTPClientTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/server/HTTPClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/HTTPClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/server/HTTPServer$DecrementHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/HTTPServer$DecrementHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/server/HTTPServer$GoodHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/HTTPServer$GoodHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/server/HTTPServer$GroupHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/HTTPServer$GroupHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/server/HTTPServer$IncrementHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/HTTPServer$IncrementHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/server/HTTPServer$SearchGroup.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/HTTPServer$SearchGroup.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/server/HTTPServer$SearchProduct.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/HTTPServer$SearchProduct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/server/HTTPServer$SpecificGoodHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/HTTPServer$SpecificGoodHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/server/HTTPServer$SpecificGroupHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/HTTPServer$SpecificGroupHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/HTTPClientTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/HTTPClientTest.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -84,8 +99,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/server/HTTPServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="37" column="25" lean-forward="true" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+            <state relative-caret-position="244">
+              <caret line="413" lean-forward="true" selection-start-line="413" selection-end-line="413" />
               <folding>
                 <element signature="method#HTTPServer#0;class#HTTPServer#0" />
                 <element signature="e#1143#1366#1" />
@@ -109,6 +124,7 @@
                 <element signature="e#6868#7136#0" />
                 <element signature="e#7170#7257#0" />
                 <element signature="e#7316#7403#1" />
+                <element signature="e#7503#9102#1" />
                 <element signature="e#8593#8653#0" />
                 <element signature="e#8702#8780#0" />
                 <element signature="e#8816#8876#0" />
@@ -116,15 +132,11 @@
                 <element signature="e#9098#9176#1" />
                 <element signature="e#9019#9040#0" />
                 <element signature="e#9170#10559#1" />
-                <element signature="e#10592#10930#0" />
                 <element signature="e#10959#11019#0" />
                 <element signature="e#11068#11146#0" />
                 <element signature="e#11182#11242#0" />
-                <element signature="e#9383#10447#0" />
                 <element signature="e#10025#10136#1" />
                 <element signature="e#10477#10498#0" />
-                <element signature="e#10628#10994#1" />
-                <element signature="e#10650#10888#0" />
                 <element signature="method#handle#0;class#SpecificGoodHandler#0;class#HTTPServer#0" />
                 <element signature="e#12346#12675#1" />
                 <element signature="e#12718#12986#0" />
@@ -135,17 +147,10 @@
                 <element signature="e#13846#14424#1" />
                 <element signature="e#13868#14292#0" />
                 <element signature="e#14051#14225#0" />
-                <element signature="method#handle#0;class#IncrementHandler#0;class#HTTPServer#0" />
                 <element signature="e#15270#15599#1" />
                 <element signature="e#15642#15910#0" />
                 <element signature="e#15944#16031#0" />
                 <element signature="e#16090#16177#1" />
-                <element signature="e#16240#17224#1" />
-                <element signature="e#17146#17366#0" />
-                <element signature="e#17395#17455#0" />
-                <element signature="e#17504#17582#0" />
-                <element signature="e#17618#17678#0" />
-                <element signature="e#16453#17112#0" />
                 <element signature="e#16689#16849#1" />
                 <element signature="e#17314#17335#0" />
                 <element signature="e#17730#18059#1" />
@@ -176,8 +181,6 @@
                 <element signature="e#21983#22665#0" />
                 <element signature="e#22269#22380#1" />
                 <element signature="e#22695#22716#0" />
-                <element signature="e#22846#23211#1" />
-                <element signature="e#22868#23105#0" />
                 <element signature="method#handle#0;class#SpecificGroupHandler#0;class#HTTPServer#0" />
                 <element signature="e#24567#24896#1" />
                 <element signature="e#24939#25207#0" />
@@ -219,8 +222,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/HTTPClientTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="157" column="49" selection-start-line="157" selection-start-column="49" selection-end-line="157" selection-end-column="49" />
+            <state relative-caret-position="-507">
+              <caret line="51" column="43" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -284,8 +287,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/server/HTTPClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="213" column="49" selection-start-line="213" selection-start-column="49" selection-end-line="213" selection-end-column="49" />
+            <state relative-caret-position="238">
+              <caret line="115" column="25" selection-start-line="115" selection-start-column="25" selection-end-line="115" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -311,6 +314,10 @@
       <find>GET</find>
       <find>getA</find>
       <find>Incre</find>
+      <find>returnG</find>
+      <find>updatePr</find>
+      <find>returnP</find>
+      <find>increme</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -336,9 +343,9 @@
         <option value="$PROJECT_DIR$/src/main/java/message/CRC.java" />
         <option value="$PROJECT_DIR$/src/main/java/message/CRC8.java" />
         <option value="$PROJECT_DIR$/src/main/java/message/Encryption.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/HTTPClient.java" />
         <option value="$PROJECT_DIR$/src/test/java/HTTPClientTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/HTTPServer.java" />
       </list>
     </option>
@@ -487,7 +494,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in Sklad">
+  <component name="RunManager" selected="JUnit.HTTPClientTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Sklad" />
@@ -522,12 +529,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HTTPClientTest.incrementProductNumMinus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HTTPClientTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sklad" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="HTTPClientTest" />
-      <option name="METHOD_NAME" value="incrementProductNumMinus" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -582,10 +588,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.HTTPClientTest" />
         <item itemvalue="JUnit.All in Sklad" />
         <item itemvalue="JUnit.DatabaseTest" />
         <item itemvalue="JUnit.DatabaseTest.updateProduct" />
-        <item itemvalue="JUnit.HTTPClientTest.incrementProductNumMinus" />
       </list>
     </recent_temporary>
   </component>
@@ -606,17 +612,11 @@
       <workItem from="1592870356549" duration="958000" />
       <workItem from="1592871894489" duration="1328000" />
       <workItem from="1592915835368" duration="3293000" />
-      <workItem from="1592942530888" duration="11719000" />
+      <workItem from="1592942530888" duration="14362000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DatabaseTest_updateProduct - 2020.06.23 at 23h 21m 26s.xml">
-      <configuration name="DatabaseTest.updateProduct" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DatabaseTest_updateProduct - 2020.06.23 at 23h 21m 33s.xml">
-      <configuration name="DatabaseTest.updateProduct" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="DatabaseTest - 2020.06.23 at 23h 22m 54s.xml">
       <configuration name="DatabaseTest" configurationId="JUnit" />
     </history-entry>
@@ -641,15 +641,21 @@
     <history-entry file="All_in_Sklad - 2020.06.24 at 02h 33m 53s.xml">
       <configuration name="All in Sklad" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="HTTPClientTest - 2020.06.24 at 03h 04m 03s.xml">
+      <configuration name="HTTPClientTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HTTPClientTest - 2020.06.24 at 03h 04m 15s.xml">
+      <configuration name="HTTPClientTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50668000" />
+    <option name="totallyTimeSpent" value="53311000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1641791" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1641791" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -658,7 +664,7 @@
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.4409534" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4409534" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -824,17 +830,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/HTTPClientTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="157" column="49" selection-start-line="157" selection-start-column="49" selection-end-line="157" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/HTTPClientTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-507">
+          <caret line="51" column="43" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -852,15 +858,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/HTTPClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="213" column="49" selection-start-line="213" selection-start-column="49" selection-end-line="213" selection-end-column="49" />
+        <state relative-caret-position="238">
+          <caret line="115" column="25" selection-start-line="115" selection-start-column="25" selection-end-line="115" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/HTTPServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="37" column="25" lean-forward="true" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+        <state relative-caret-position="244">
+          <caret line="413" lean-forward="true" selection-start-line="413" selection-end-line="413" />
           <folding>
             <element signature="method#HTTPServer#0;class#HTTPServer#0" />
             <element signature="e#1143#1366#1" />
@@ -884,6 +890,7 @@
             <element signature="e#6868#7136#0" />
             <element signature="e#7170#7257#0" />
             <element signature="e#7316#7403#1" />
+            <element signature="e#7503#9102#1" />
             <element signature="e#8593#8653#0" />
             <element signature="e#8702#8780#0" />
             <element signature="e#8816#8876#0" />
@@ -891,15 +898,11 @@
             <element signature="e#9098#9176#1" />
             <element signature="e#9019#9040#0" />
             <element signature="e#9170#10559#1" />
-            <element signature="e#10592#10930#0" />
             <element signature="e#10959#11019#0" />
             <element signature="e#11068#11146#0" />
             <element signature="e#11182#11242#0" />
-            <element signature="e#9383#10447#0" />
             <element signature="e#10025#10136#1" />
             <element signature="e#10477#10498#0" />
-            <element signature="e#10628#10994#1" />
-            <element signature="e#10650#10888#0" />
             <element signature="method#handle#0;class#SpecificGoodHandler#0;class#HTTPServer#0" />
             <element signature="e#12346#12675#1" />
             <element signature="e#12718#12986#0" />
@@ -910,17 +913,10 @@
             <element signature="e#13846#14424#1" />
             <element signature="e#13868#14292#0" />
             <element signature="e#14051#14225#0" />
-            <element signature="method#handle#0;class#IncrementHandler#0;class#HTTPServer#0" />
             <element signature="e#15270#15599#1" />
             <element signature="e#15642#15910#0" />
             <element signature="e#15944#16031#0" />
             <element signature="e#16090#16177#1" />
-            <element signature="e#16240#17224#1" />
-            <element signature="e#17146#17366#0" />
-            <element signature="e#17395#17455#0" />
-            <element signature="e#17504#17582#0" />
-            <element signature="e#17618#17678#0" />
-            <element signature="e#16453#17112#0" />
             <element signature="e#16689#16849#1" />
             <element signature="e#17314#17335#0" />
             <element signature="e#17730#18059#1" />
@@ -951,8 +947,6 @@
             <element signature="e#21983#22665#0" />
             <element signature="e#22269#22380#1" />
             <element signature="e#22695#22716#0" />
-            <element signature="e#22846#23211#1" />
-            <element signature="e#22868#23105#0" />
             <element signature="method#handle#0;class#SpecificGroupHandler#0;class#HTTPServer#0" />
             <element signature="e#24567#24896#1" />
             <element signature="e#24939#25207#0" />

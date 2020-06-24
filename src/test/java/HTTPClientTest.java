@@ -47,13 +47,13 @@ public class HTTPClientTest {
     }
 
     @Test
-    void getProductWithoutLogin() throws IOException {
+    void getProductWithoutLogin() throws IOException, GeneralSecurityException, WrongStartOfMessage, WrongCrcException {
         HTTPClient client = new HTTPClient();
         Assertions.assertNull(client.getProduct(1));
     }
 
     @Test
-    void getProductExisted() throws IOException, AuthenticationException, NoSuchAlgorithmException, SQLException {
+    void getProductExisted() throws IOException, AuthenticationException, GeneralSecurityException, SQLException, WrongStartOfMessage, WrongCrcException {
         HTTPClient client = new HTTPClient();
         client.login(login,password);
         Database database = new Database();
@@ -63,7 +63,7 @@ public class HTTPClientTest {
         assertEquals(product,fromDB);
     }
     @Test
-    void getProductNotExisted() throws IOException, AuthenticationException, NoSuchAlgorithmException {
+    void getProductNotExisted() throws IOException, AuthenticationException, GeneralSecurityException, WrongStartOfMessage, WrongCrcException {
         HTTPClient client = new HTTPClient();
         client.login(login,password);
         assertNull(client.getProduct(20000));
@@ -77,7 +77,7 @@ public class HTTPClientTest {
     }
 
     @Test
-    void deleteProductExisted() throws IOException, AuthenticationException, NoSuchAlgorithmException, SQLException {
+    void deleteProductExisted() throws Exception {
         HTTPClient client = new HTTPClient();
         client.login(login,password);
         int id = (client.insertProduct("azxxcv", new ArrayList<>(), 12,21, "q", "w"));
@@ -92,27 +92,27 @@ public class HTTPClientTest {
 
 
     @Test
-    void insertProductWithoutLogin() throws IOException {
+    void insertProductWithoutLogin() throws Exception {
         HTTPClient client = new HTTPClient();
         assertEquals(client.insertProduct("asd", new ArrayList<>(), 12, 21, "q", "w"), -1);
     }
 
     @Test
-    void insertProduct() throws IOException, AuthenticationException, NoSuchAlgorithmException {
+    void insertProduct() throws Exception {
         HTTPClient client = new HTTPClient();
         client.login(login,password);
         int id = (client.insertProduct("azxxcv", new ArrayList<>(), 12,21, "q", "w"));
         assertTrue(client.deleteProduct(id));
     }
     @Test
-    void insertProductWrongInput() throws IOException, AuthenticationException, NoSuchAlgorithmException {
+    void insertProductWrongInput() throws Exception {
         HTTPClient client = new HTTPClient();
         client.login(login,password);
         int id = (client.insertProduct("", new ArrayList<>(), 0,-1, "q", "w"));
         assertEquals(id, -1);
     }
     @Test
-    void insertProductDuplicateName() throws IOException, AuthenticationException, NoSuchAlgorithmException {
+    void insertProductDuplicateName() throws Exception {
         HTTPClient client = new HTTPClient();
         client.login(login,password);
         int id = (client.insertProduct("apple", new ArrayList<>(), 2,2, "q", "w"));
@@ -297,7 +297,7 @@ public class HTTPClientTest {
 
 
     @Test
-    void getGroupWithoutLogin() throws IOException {
+    void getGroupWithoutLogin() throws IOException, GeneralSecurityException, WrongStartOfMessage, WrongCrcException {
         HTTPClient client = new HTTPClient();
         Assertions.assertNull(client.getProduct(1));
     }

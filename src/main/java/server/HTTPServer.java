@@ -271,6 +271,7 @@ public class HTTPServer {
                 returnError(httpExchange,404);
             }
             else if ("GET".equals(httpExchange.getRequestMethod())) {
+
                 try {
                     Database database = new Database();
                     ArrayList<Product> product = database.getAllProducts();
@@ -302,13 +303,13 @@ public class HTTPServer {
             OutputStream outputStream = httpExchange.getResponseBody();
             ObjectMapper mapper = new ObjectMapper();
             String htmlResponse = mapper.writeValueAsString(product);
+            System.out.println(htmlResponse);
 
-            Encryption encryption = new Encryption(httpExchange.getRequestHeaders().getOrDefault("token", new ArrayList<>()).get(0).substring(0,16));
-            Message message = new Message(0,0, htmlResponse);
-            byte[] toSend = encryption.encrypt(message);
+            String toSend = Encryption.encrypt(htmlResponse, Encryption.encodeKey(httpExchange.getRequestHeaders().getOrDefault("token", new ArrayList<>()).get(0).substring(0,16)));
+            System.out.println(toSend);
 
-            httpExchange.sendResponseHeaders(200, toSend.length);
-            outputStream.write(toSend);
+            httpExchange.sendResponseHeaders(200, toSend.length());
+            outputStream.write(toSend.getBytes());
             outputStream.flush();
             outputStream.close();
         }
@@ -407,19 +408,9 @@ public class HTTPServer {
                 return;
             }
             if("POST".equals(httpExchange.getRequestMethod())){
-                Encryption encryption = new Encryption(httpExchange.getRequestHeaders().getOrDefault("token", new ArrayList<>()).get(0).substring(0,16));
                 String message = null;
-                try {
-                    String s = new BufferedReader(new InputStreamReader(httpExchange.getRequestBody(), StandardCharsets.UTF_8)).lines().collect(Collectors.joining("\n"));
-                    System.out.println(Arrays.toString(s.getBytes()));
-                    message = encryption.decript(s.getBytes()).getMessage();
-                } catch (WrongCrcException e) {
-                    e.printStackTrace();
-                } catch (WrongStartOfMessage wrongStartOfMessage) {
-                    wrongStartOfMessage.printStackTrace();
-                } catch (GeneralSecurityException e) {
-                    e.printStackTrace();
-                }
+                String s = new BufferedReader(new InputStreamReader(httpExchange.getRequestBody(), StandardCharsets.UTF_8)).lines().collect(Collectors.joining("\n"));
+                message = Encryption.decrypt(s, Encryption.encodeKey(httpExchange.getRequestHeaders().getOrDefault("token", new ArrayList<>()).get(0).substring(0,16)));
 
                 JSONObject object= new JSONObject(message);
                 try {
@@ -627,6 +618,7 @@ public class HTTPServer {
             Encryption encryption = new Encryption(httpExchange.getRequestHeaders().getOrDefault("token", new ArrayList<>()).get(0).substring(0,16));
             Message message = new Message(0,0, htmlResponse);
             byte[] toSend = encryption.encrypt(message);
+            System.out.println(Arrays.toString(toSend));
 
             httpExchange.sendResponseHeaders(200, toSend.length);
             outputStream.write(toSend);
